@@ -45,30 +45,6 @@
       font-size: 16px;
     }
 
-    .topic-bar {
-      margin-top: 12px;
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .topic-label {
-      font-size: 14px;
-      color: var(--accent-2);
-      font-weight: 600;
-    }
-
-    .topic-select {
-      padding: 8px 12px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: #fffdfa;
-      color: var(--ink);
-      font-size: 14px;
-      min-width: 220px;
-    }
-
     .container {
       padding: 0 20px 20px;
       max-width: 1100px;
@@ -186,6 +162,90 @@
       border: 1px solid #4c3b2e;
     }
 
+    .player {
+      position: fixed;
+      right: 16px;
+      bottom: 90px;
+      background: #1f1a14;
+      color: #fef6e4;
+      border-radius: 16px;
+      padding: 12px;
+      width: 260px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+      border: 1px solid #3b2f2f;
+      z-index: 12;
+    }
+
+    .player h3 {
+      margin: 0 0 6px;
+      font-size: 14px;
+      color: #f7e1b5;
+    }
+
+    .player .word {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0 0 6px;
+    }
+
+    .player .meaning {
+      margin: 0;
+      font-size: 13px;
+      color: #e7d7b3;
+    }
+
+    .player .actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .player .actions .btn {
+      flex: 1 1 30%;
+    }
+
+    .player.hidden {
+      display: none;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: #130f0c;
+      color: #fef6e4;
+      z-index: 20;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .overlay.active {
+      display: flex;
+    }
+
+    .overlay .overlay-word {
+      font-size: 48px;
+      font-weight: 800;
+      margin: 0 0 12px;
+    }
+
+    .overlay .overlay-meaning {
+      font-size: 20px;
+      margin: 0 0 24px;
+      color: #f7e1b5;
+    }
+
+    .overlay .overlay-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
     @media (max-width: 720px) {
       .title {
         font-size: 22px;
@@ -215,13 +275,19 @@
         justify-content: space-between;
       }
 
-      .topic-bar {
-        flex-direction: column;
-        align-items: flex-start;
+      .player {
+        width: calc(100% - 32px);
+        right: 16px;
+        left: 16px;
+        bottom: 120px;
       }
 
-      .topic-select {
-        width: 100%;
+      .overlay .overlay-word {
+        font-size: 34px;
+      }
+
+      .overlay .overlay-meaning {
+        font-size: 16px;
       }
     }
   </style>
@@ -231,10 +297,6 @@
     <div class="container">
       <h1 class="title" id="topicTitle">Danh sách từ vựng</h1>
       <p class="subtitle" id="topicSubtitle">Đang tải dữ liệu...</p>
-      <div class="topic-bar">
-        <label class="topic-label" for="topicSelect">Chọn chủ đề</label>
-        <select class="topic-select" id="topicSelect" aria-label="Chọn chủ đề"></select>
-      </div>
     </div>
   </header>
 
@@ -270,23 +332,57 @@
     </div>
   </div>
 
+  <div class="player" id="miniPlayer" aria-live="polite">
+    <h3>Đang phát</h3>
+    <p class="word" id="playerWord">---</p>
+    <p class="meaning" id="playerMeaning">---</p>
+    <div class="actions">
+      <button class="btn secondary" id="expandBtn">Phóng to</button>
+      <button class="btn secondary" id="pipBtn">PiP</button>
+      <button class="btn" id="replayBtn">Nghe lại</button>
+    </div>
+  </div>
+
+  <div class="overlay" id="fullOverlay" aria-hidden="true">
+    <p class="overlay-word" id="overlayWord">---</p>
+    <p class="overlay-meaning" id="overlayMeaning">---</p>
+    <div class="overlay-actions">
+      <button class="btn secondary" id="shrinkBtn">Thu nhỏ</button>
+      <button class="btn" id="overlayReplayBtn">Nghe lại</button>
+    </div>
+  </div>
+
   <script>
     const vocabBody = document.getElementById("vocabBody");
     const topicTitle = document.getElementById("topicTitle");
     const topicSubtitle = document.getElementById("topicSubtitle");
-    const topicSelect = document.getElementById("topicSelect");
     const autoPlayBtn = document.getElementById("autoPlayBtn");
     const stopBtn = document.getElementById("stopBtn");
     const autoStatus = document.getElementById("autoStatus");
     const volumeInput = document.getElementById("volume");
     const volumeLabel = document.getElementById("volumeLabel");
+    const miniPlayer = document.getElementById("miniPlayer");
+    const playerWord = document.getElementById("playerWord");
+    const playerMeaning = document.getElementById("playerMeaning");
+    const expandBtn = document.getElementById("expandBtn");
+    const pipBtn = document.getElementById("pipBtn");
+    const replayBtn = document.getElementById("replayBtn");
+    const fullOverlay = document.getElementById("fullOverlay");
+    const overlayWord = document.getElementById("overlayWord");
+    const overlayMeaning = document.getElementById("overlayMeaning");
+    const shrinkBtn = document.getElementById("shrinkBtn");
+    const overlayReplayBtn = document.getElementById("overlayReplayBtn");
 
-    let topics = [];
     let vocabList = [];
-    let currentTopicIndex = 0;
     let autoPlaying = false;
     let currentIndex = -1;
     let volume = Number(volumeInput.value);
+    let selectedVoice = null;
+
+    let pipCanvas = null;
+    let pipCtx = null;
+    let pipVideo = null;
+    let pipActive = false;
 
     const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -301,17 +397,43 @@
       });
     };
 
+    const pickVoice = () => {
+      if (!window.speechSynthesis) return null;
+      const voices = window.speechSynthesis.getVoices();
+      if (!voices.length) return null;
+      const preferred = [
+        (voice) => voice.lang === "en-US" && /female|zira|susan|aria|jenny/i.test(voice.name),
+        (voice) => voice.lang === "en-US",
+        (voice) => voice.lang && voice.lang.startsWith("en"),
+      ];
+      for (let i = 0; i < preferred.length; i += 1) {
+        const match = voices.find(preferred[i]);
+        if (match) return match;
+      }
+      return voices[0];
+    };
+
+    const ensureVoice = () => {
+      if (!selectedVoice) {
+        selectedVoice = pickVoice();
+      }
+    };
+
     const speakWord = (word) => {
       return new Promise((resolve) => {
         if (!window.speechSynthesis) {
           resolve();
           return;
         }
+        ensureVoice();
         const utterance = new SpeechSynthesisUtterance(word);
         utterance.lang = "en-US";
         utterance.rate = 0.9;
         utterance.pitch = 1;
         utterance.volume = volume;
+        if (selectedVoice) {
+          utterance.voice = selectedVoice;
+        }
         utterance.onend = () => resolve();
         utterance.onerror = () => resolve();
         window.speechSynthesis.cancel();
@@ -321,7 +443,6 @@
 
     const stopAll = () => {
       autoPlaying = false;
-      currentIndex = -1;
       autoStatus.textContent = "Tự động: Tắt";
       autoPlayBtn.disabled = false;
       stopBtn.disabled = true;
@@ -331,6 +452,24 @@
       }
     };
 
+    const updatePlayer = (item) => {
+      if (!item) {
+        miniPlayer.classList.add("hidden");
+        overlayWord.textContent = "---";
+        overlayMeaning.textContent = "---";
+        playerWord.textContent = "---";
+        playerMeaning.textContent = "---";
+        drawPiP(null);
+        return;
+      }
+      miniPlayer.classList.remove("hidden");
+      playerWord.textContent = item.text;
+      playerMeaning.textContent = item.vietnamese_meaning;
+      overlayWord.textContent = item.text;
+      overlayMeaning.textContent = item.vietnamese_meaning;
+      drawPiP(item);
+    };
+
     const startAutoPlay = async () => {
       if (!vocabList.length) return;
       autoPlaying = true;
@@ -338,17 +477,23 @@
       autoPlayBtn.disabled = true;
       stopBtn.disabled = false;
 
-      for (let i = 0; i < vocabList.length; i += 1) {
+      const startIndex = currentIndex >= 0 ? currentIndex : 0;
+      for (let i = startIndex; i < vocabList.length; i += 1) {
         if (!autoPlaying) break;
         currentIndex = i;
         setActiveRow(i);
+        updatePlayer(vocabList[i]);
         await speakWord(vocabList[i].text);
         if (!autoPlaying) break;
         await sleep(2000);
       }
 
       if (autoPlaying) {
-        stopAll();
+        autoPlaying = false;
+        autoStatus.textContent = "Tự động: Hoàn tất";
+        autoPlayBtn.disabled = false;
+        stopBtn.disabled = true;
+        setActiveRow(-1);
       }
     };
 
@@ -377,7 +522,107 @@
         stopAll();
         currentIndex = index;
         setActiveRow(index);
+        updatePlayer(vocabList[index]);
         await speakWord(vocabList[index].text);
+      });
+    };
+
+    const wrapText = (ctx, text, maxWidth) => {
+      if (!text) return [];
+      const words = text.split(" ");
+      const lines = [];
+      let line = "";
+      words.forEach((word) => {
+        const testLine = line ? `${line} ${word}` : word;
+        if (ctx.measureText(testLine).width <= maxWidth) {
+          line = testLine;
+        } else {
+          if (line) lines.push(line);
+          line = word;
+        }
+      });
+      if (line) lines.push(line);
+      return lines;
+    };
+
+    const initPiP = () => {
+      if (pipCanvas) return;
+      pipCanvas = document.createElement("canvas");
+      pipCanvas.width = 640;
+      pipCanvas.height = 360;
+      pipCtx = pipCanvas.getContext("2d");
+      pipVideo = document.createElement("video");
+      pipVideo.muted = true;
+      pipVideo.playsInline = true;
+      pipVideo.srcObject = pipCanvas.captureStream(30);
+      pipVideo.addEventListener("loadedmetadata", () => {
+        pipVideo.play().catch(() => {});
+      });
+      pipVideo.addEventListener("enterpictureinpicture", () => {
+        pipActive = true;
+      });
+      pipVideo.addEventListener("leavepictureinpicture", () => {
+        pipActive = false;
+      });
+    };
+
+    const drawPiP = (item) => {
+      if (!pipCtx || !pipCanvas) return;
+      const ctx = pipCtx;
+      const width = pipCanvas.width;
+      const height = pipCanvas.height;
+      ctx.fillStyle = "#1e1b16";
+      ctx.fillRect(0, 0, width, height);
+
+      if (!item) {
+        ctx.fillStyle = "#fff";
+        ctx.font = "bold 28px Georgia, serif";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText("No data", width / 2, height / 2);
+        return;
+      }
+
+      const wordFont = "bold 60px Georgia, serif";
+      const transcriptionFont = "32px Georgia, serif";
+      const meaningFont = "40px Georgia, serif";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+
+      ctx.font = wordFont;
+      const wordLines = wrapText(ctx, item.text, width - 80);
+      ctx.font = transcriptionFont;
+      const transcription = item.transcription ? `/${item.transcription}/` : "";
+      const transcriptionLines = wrapText(ctx, transcription, width - 120);
+      ctx.font = meaningFont;
+      const meaningLines = wrapText(ctx, item.vietnamese_meaning, width - 160);
+
+      const wordLineHeight = 60;
+      const transcriptionLineHeight = 40;
+      const meaningLineHeight = 48;
+      const totalHeight = (wordLines.length * wordLineHeight) + (transcriptionLines.length * transcriptionLineHeight) + 40 + (meaningLines.length * meaningLineHeight);
+      let y = (height - totalHeight) / 2 + wordLineHeight / 2;
+
+      ctx.font = wordFont;
+      ctx.fillStyle = "#fef6e4";
+      wordLines.forEach((line) => {
+        ctx.fillText(line, width / 2, y);
+        y += wordLineHeight;
+      });
+
+      ctx.font = transcriptionFont;
+      ctx.fillStyle = "#d9caa1";
+      transcriptionLines.forEach((line) => {
+        ctx.fillText(line, width / 2, y);
+        y += transcriptionLineHeight;
+      });
+
+      y += 8;
+      ctx.font = meaningFont;
+      ctx.fillStyle = "#f7e1b5";
+      meaningLines.forEach((line) => {
+        ctx.fillText(line, width / 2, y);
+        y += meaningLineHeight;
       });
     };
 
@@ -385,41 +630,25 @@
       try {
         const response = await fetch("vocabulary.json");
         const data = await response.json();
-        topics = Array.isArray(data) ? data : data && data.Topic ? [data] : [];
+        const topics = Array.isArray(data) ? data : data && data.Topic ? [data] : [];
         if (!topics.length) {
           topicSubtitle.textContent = "Không có dữ liệu từ vựng.";
           return;
         }
 
-        topicSelect.innerHTML = "";
-        topics.forEach((topic, index) => {
-          const option = document.createElement("option");
-          option.value = String(index);
-          option.textContent = topic.Topic || `Chủ đề ${index + 1}`;
-          topicSelect.appendChild(option);
-        });
-
-        currentTopicIndex = 0;
-        topicSelect.value = "0";
-        vocabList = topics[currentTopicIndex].data || [];
-        topicTitle.textContent = `Chủ đề: ${topics[currentTopicIndex].Topic || "Danh sách từ vựng"}`;
+        vocabList = topics.reduce((acc, topic) => {
+          const items = Array.isArray(topic.data) ? topic.data : [];
+          return acc.concat(items);
+        }, []);
+        topicTitle.textContent = "Chủ đề: Tất cả";
         topicSubtitle.textContent = `Tổng số từ: ${vocabList.length}`;
         renderTable(vocabList);
+        currentIndex = 0;
+        updatePlayer(vocabList[0]);
       } catch (error) {
         topicSubtitle.textContent = "Không thể tải dữ liệu từ vựng.";
       }
     };
-
-    topicSelect.addEventListener("change", (event) => {
-      const nextIndex = Number(event.target.value);
-      if (Number.isNaN(nextIndex) || !topics[nextIndex]) return;
-      stopAll();
-      currentTopicIndex = nextIndex;
-      vocabList = topics[currentTopicIndex].data || [];
-      topicTitle.textContent = `Chủ đề: ${topics[currentTopicIndex].Topic || "Danh sách từ vựng"}`;
-      topicSubtitle.textContent = `Tổng số từ: ${vocabList.length}`;
-      renderTable(vocabList);
-    });
 
     autoPlayBtn.addEventListener("click", () => {
       startAutoPlay();
@@ -434,6 +663,56 @@
       volume = value;
       volumeLabel.textContent = `${Math.round(value * 100)}%`;
     });
+
+    expandBtn.addEventListener("click", () => {
+      fullOverlay.classList.add("active");
+      fullOverlay.setAttribute("aria-hidden", "false");
+    });
+
+    shrinkBtn.addEventListener("click", () => {
+      fullOverlay.classList.remove("active");
+      fullOverlay.setAttribute("aria-hidden", "true");
+    });
+
+    replayBtn.addEventListener("click", async () => {
+      if (currentIndex < 0 || !vocabList[currentIndex]) return;
+      await speakWord(vocabList[currentIndex].text);
+    });
+
+    overlayReplayBtn.addEventListener("click", async () => {
+      if (currentIndex < 0 || !vocabList[currentIndex]) return;
+      await speakWord(vocabList[currentIndex].text);
+    });
+
+    pipBtn.addEventListener("click", async () => {
+      const pipSupported = "pictureInPictureEnabled" in document && document.pictureInPictureEnabled;
+      if (!pipSupported) return;
+      initPiP();
+      const currentItem = currentIndex >= 0 ? vocabList[currentIndex] : vocabList[0];
+      drawPiP(currentItem || null);
+      try {
+        await pipVideo.play();
+        if (document.pictureInPictureElement) {
+          await document.exitPictureInPicture();
+        } else {
+          await pipVideo.requestPictureInPicture();
+        }
+      } catch (error) {
+        return;
+      }
+    });
+
+    const pipSupported = "pictureInPictureEnabled" in document && document.pictureInPictureEnabled;
+    if (!pipSupported) {
+      pipBtn.disabled = true;
+      pipBtn.textContent = "PiP không hỗ trợ";
+    }
+
+    if (window.speechSynthesis) {
+      window.speechSynthesis.addEventListener("voiceschanged", () => {
+        selectedVoice = pickVoice();
+      });
+    }
 
     bindRowButtons();
     loadData();
