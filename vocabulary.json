@@ -1,0 +1,2627 @@
+[
+    {
+        "Topic": "Kỹ năng",
+        "data": [
+            {
+                "text": "Skill",
+                "transcription": "skɪl",
+                "vietnamese_meaning": "Kỹ năng"
+            },
+            {
+                "text": "Communication",
+                "transcription": "kəˌmjuːnɪˈkeɪʃən",
+                "vietnamese_meaning": "Giao tiếp"
+            },
+            {
+                "text": "Leadership",
+                "transcription": "ˈliːdərʃɪp",
+                "vietnamese_meaning": "Lãnh đạo"
+            },
+            {
+                "text": "Problem-solving",
+                "transcription": "ˈprɑːbləm ˌsɑːlvɪŋ",
+                "vietnamese_meaning": "Giải quyết vấn đề"
+            },
+            {
+                "text": "Time management",
+                "transcription": "taɪm ˈmænɪdʒmənt",
+                "vietnamese_meaning": "Quản lý thời gian"
+            },
+            {
+                "text": "Teamwork",
+                "transcription": "ˈtiːmwɜːrk",
+                "vietnamese_meaning": "Làm việc nhóm"
+            },
+            {
+                "text": "Adaptability",
+                "transcription": "əˌdæptəˈbɪləti",
+                "vietnamese_meaning": "Tính linh hoạt"
+            },
+            {
+                "text": "Critical thinking",
+                "transcription": "ˈkrɪtɪkəl ˈθɪŋkɪŋ",
+                "vietnamese_meaning": "Tư duy phản biện"
+            },
+            {
+                "text": "Creativity",
+                "transcription": "ˌkriːeɪˈtɪvəti",
+                "vietnamese_meaning": "Sáng tạo"
+            },
+            {
+                "text": "Problem-solving",
+                "transcription": "ˈprɑːbləm ˌsɑːlvɪŋ",
+                "vietnamese_meaning": "Giải quyết vấn đề"
+            },
+            {
+                "text": "Decision-making",
+                "transcription": "dɪˈsɪʒən ˈmeɪkɪŋ",
+                "vietnamese_meaning": "Ra quyết định"
+            },
+            {
+                "text": "Negotiation",
+                "transcription": "nɪˌɡoʊʃiˈeɪʃən",
+                "vietnamese_meaning": "Thương lượng"
+            },
+            {
+                "text": "Presentation",
+                "transcription": "ˌprezənˈteɪʃən",
+                "vietnamese_meaning": "Thuyết trình"
+            },
+            {
+                "text": "Public speaking",
+                "transcription": "ˈpʌblɪk ˈspiːkɪŋ",
+                "vietnamese_meaning": "Diễn thuyết công khai"
+            },
+            {
+                "text": "Problem-solving",
+                "transcription": "ˈprɑːbləm ˌsɑːlvɪŋ",
+                "vietnamese_meaning": "Giải quyết vấn đề"
+            },
+            {
+                "text": "Decision-making",
+                "transcription": "dɪˈsɪʒən ˈmeɪkɪŋ",
+                "vietnamese_meaning": "Ra quyết định"
+            },
+            {
+                "text": "Networking",
+                "transcription": "ˈnetwɜːrkɪŋ",
+                "vietnamese_meaning": "Mạng lưới"
+            },
+            {
+                "text": "Organization",
+                "transcription": "ˌɔːrɡənaɪˈzeɪʃən",
+                "vietnamese_meaning": "Tổ chức"
+            },
+            {
+                "text": "Adaptability",
+                "transcription": "əˌdæptəˈbɪləti",
+                "vietnamese_meaning": "Tính linh hoạt"
+            },
+            {
+                "text": "Self-motivation",
+                "transcription": "ˌself ˌmoʊtɪˈveɪʃən",
+                "vietnamese_meaning": "Tự động viên"
+            }
+        ]
+    },
+    {
+        "Topic": "Thời tiết và mùa trong năm",
+        "data": [
+            {
+                "text": "Weather",
+                "transcription": "ˈweðər",
+                "vietnamese_meaning": "Thời tiết"
+            },
+            {
+                "text": "Temperature",
+                "transcription": "ˈtemp(ə)rətʃər",
+                "vietnamese_meaning": "Nhiệt độ"
+            },
+            {
+                "text": "Sunny",
+                "transcription": "ˈsʌni",
+                "vietnamese_meaning": "Nắng"
+            },
+            {
+                "text": "Cloudy",
+                "transcription": "ˈklaʊdi",
+                "vietnamese_meaning": "Mây"
+            },
+            {
+                "text": "Rainy",
+                "transcription": "ˈreɪni",
+                "vietnamese_meaning": "Mưa"
+            },
+            {
+                "text": "Snowy",
+                "transcription": "ˈsnoʊi",
+                "vietnamese_meaning": "Tuyết"
+            },
+            {
+                "text": "Windy",
+                "transcription": "ˈwɪndi",
+                "vietnamese_meaning": "Gió"
+            },
+            {
+                "text": "Stormy",
+                "transcription": "ˈstɔːrmi",
+                "vietnamese_meaning": "Bão"
+            },
+            {
+                "text": "Foggy",
+                "transcription": "ˈfɒɡi",
+                "vietnamese_meaning": "Sương mù"
+            },
+            {
+                "text": "Season",
+                "transcription": "ˈsiːz(ə)n",
+                "vietnamese_meaning": "Mùa"
+            },
+            {
+                "text": "Spring",
+                "transcription": "sprɪŋ",
+                "vietnamese_meaning": "Mùa xuân"
+            },
+            {
+                "text": "Summer",
+                "transcription": "ˈsʌmər",
+                "vietnamese_meaning": "Mùa hè"
+            },
+            {
+                "text": "Autumn",
+                "transcription": "ˈɔːtəm",
+                "vietnamese_meaning": "Mùa thu"
+            },
+            {
+                "text": "Winter",
+                "transcription": "ˈwɪntər",
+                "vietnamese_meaning": "Mùa đông"
+            },
+            {
+                "text": "January",
+                "transcription": "ˈdʒænjuəri",
+                "vietnamese_meaning": "Tháng một"
+            },
+            {
+                "text": "February",
+                "transcription": "ˈfebjuəri",
+                "vietnamese_meaning": "Tháng hai"
+            },
+            {
+                "text": "March",
+                "transcription": "mɑːrtʃ",
+                "vietnamese_meaning": "Tháng ba"
+            },
+            {
+                "text": "April",
+                "transcription": "ˈeɪprəl",
+                "vietnamese_meaning": "Tháng tư"
+            },
+            {
+                "text": "May",
+                "transcription": "meɪ",
+                "vietnamese_meaning": "Tháng năm"
+            },
+            {
+                "text": "June",
+                "transcription": "dʒuːn",
+                "vietnamese_meaning": "Tháng sáu"
+            }
+        ]
+    },
+    {
+        "Topic": "Sở thích và giải trí",
+        "data": [
+            {
+                "text": "Hobby",
+                "transcription": "ˈhɒbi",
+                "vietnamese_meaning": "Sở thích"
+            },
+            {
+                "text": "Sports",
+                "transcription": "spɔːrts",
+                "vietnamese_meaning": "Thể thao"
+            },
+            {
+                "text": "Music",
+                "transcription": "ˈmjuːzɪk",
+                "vietnamese_meaning": "Âm nhạc"
+            },
+            {
+                "text": "Reading",
+                "transcription": "ˈriːdɪŋ",
+                "vietnamese_meaning": "Đọc sách"
+            },
+            {
+                "text": "Painting",
+                "transcription": "ˈpeɪntɪŋ",
+                "vietnamese_meaning": "Vẽ tranh"
+            },
+            {
+                "text": "Photography",
+                "transcription": "fəˈtɒɡrəfi",
+                "vietnamese_meaning": "Nhiếp ảnh"
+            },
+            {
+                "text": "Cooking",
+                "transcription": "ˈkʊkɪŋ",
+                "vietnamese_meaning": "Nấu ăn"
+            },
+            {
+                "text": "Gardening",
+                "transcription": "ˈɡɑːrdnɪŋ",
+                "vietnamese_meaning": "Làm vườn"
+            },
+            {
+                "text": "Traveling",
+                "transcription": "ˈtrævəlɪŋ",
+                "vietnamese_meaning": "Du lịch"
+            },
+            {
+                "text": "Dancing",
+                "transcription": "ˈdænsɪŋ",
+                "vietnamese_meaning": "Nhảy múa"
+            },
+            {
+                "text": "Gaming",
+                "transcription": "ˈɡeɪmɪŋ",
+                "vietnamese_meaning": "Chơi game"
+            },
+            {
+                "text": "Movies",
+                "transcription": "ˈmuːviz",
+                "vietnamese_meaning": "Phim"
+            },
+            {
+                "text": "Theatre",
+                "transcription": "ˈθiːətər",
+                "vietnamese_meaning": "Nhà hát"
+            },
+            {
+                "text": "Concert",
+                "transcription": "ˈkɑːnsərt",
+                "vietnamese_meaning": "Buổi hòa nhạc"
+            },
+            {
+                "text": "Art",
+                "transcription": "ɑːrt",
+                "vietnamese_meaning": "Nghệ thuật"
+            },
+            {
+                "text": "Writing",
+                "transcription": "ˈraɪtɪŋ",
+                "vietnamese_meaning": "Viết"
+            },
+            {
+                "text": "Cycling",
+                "transcription": "ˈsaɪklɪŋ",
+                "vietnamese_meaning": "Đạp xe"
+            },
+            {
+                "text": "Swimming",
+                "transcription": "ˈswɪmɪŋ",
+                "vietnamese_meaning": "Bơi lội"
+            },
+            {
+                "text": "Hiking",
+                "transcription": "ˈhaɪkɪŋ",
+                "vietnamese_meaning": "Leo núi"
+            },
+            {
+                "text": "Yoga",
+                "transcription": "ˈjoʊɡə",
+                "vietnamese_meaning": "Yoga"
+            }
+        ]
+    },
+    {
+        "Topic": "Thành phố và địa điểm du lịch",
+        "data": [
+            {
+                "text": "City",
+                "transcription": "ˈsɪti",
+                "vietnamese_meaning": "Thành phố"
+            },
+            {
+                "text": "Town",
+                "transcription": "taʊn",
+                "vietnamese_meaning": "Thị trấn"
+            },
+            {
+                "text": "Capital",
+                "transcription": "ˈkæpɪtəl",
+                "vietnamese_meaning": "Thủ đô"
+            },
+            {
+                "text": "Street",
+                "transcription": "striːt",
+                "vietnamese_meaning": "Đường"
+            },
+            {
+                "text": "Avenue",
+                "transcription": "ˈævənuː",
+                "vietnamese_meaning": "Đại lộ"
+            },
+            {
+                "text": "Square",
+                "transcription": "skwer",
+                "vietnamese_meaning": "Quảng trường"
+            },
+            {
+                "text": "Park",
+                "transcription": "pɑːrk",
+                "vietnamese_meaning": "Công viên"
+            },
+            {
+                "text": "Museum",
+                "transcription": "mjuˈziːəm",
+                "vietnamese_meaning": "Bảo tàng"
+            },
+            {
+                "text": "Gallery",
+                "transcription": "ˈɡæləri",
+                "vietnamese_meaning": "Triển lãm"
+            },
+            {
+                "text": "Landmark",
+                "transcription": "ˈlændmɑːrk",
+                "vietnamese_meaning": "Địa danh"
+            },
+            {
+                "text": "Cathedral",
+                "transcription": "kəˈθiːdrəl",
+                "vietnamese_meaning": "Nhà thờ chính"
+            },
+            {
+                "text": "Temple",
+                "transcription": "ˈtempəl",
+                "vietnamese_meaning": "Đền, chùa"
+            },
+            {
+                "text": "Palace",
+                "transcription": "ˈpæləs",
+                "vietnamese_meaning": "Cung điện"
+            },
+            {
+                "text": "Castle",
+                "transcription": "ˈkæsəl",
+                "vietnamese_meaning": "Lâu đài"
+            },
+            {
+                "text": "Bridge",
+                "transcription": "brɪdʒ",
+                "vietnamese_meaning": "Cầu"
+            },
+            {
+                "text": "Beach",
+                "transcription": "biːtʃ",
+                "vietnamese_meaning": "Bãi biển"
+            },
+            {
+                "text": "Lake",
+                "transcription": "leɪk",
+                "vietnamese_meaning": "Hồ"
+            },
+            {
+                "text": "Mountain",
+                "transcription": "ˈmaʊntən",
+                "vietnamese_meaning": "Núi"
+            },
+            {
+                "text": "Garden",
+                "transcription": "ˈɡɑːrdən",
+                "vietnamese_meaning": "Vườn"
+            },
+            {
+                "text": "Zoo",
+                "transcription": "zuː",
+                "vietnamese_meaning": "Sở thú"
+            }
+        ]
+    },
+    {
+        "Topic": "Nghệ thuật",
+        "data": [
+            {
+                "text": "Art",
+                "transcription": "ɑːrt",
+                "vietnamese_meaning": "Nghệ thuật"
+            },
+            {
+                "text": "Painting",
+                "transcription": "ˈpeɪntɪŋ",
+                "vietnamese_meaning": "Hội họa"
+            },
+            {
+                "text": "Sculpture",
+                "transcription": "ˈskʌlptʃər",
+                "vietnamese_meaning": "Điêu khắc"
+            },
+            {
+                "text": "Drawing",
+                "transcription": "ˈdrɔːɪŋ",
+                "vietnamese_meaning": "Vẽ"
+            },
+            {
+                "text": "Sketch",
+                "transcription": "sketʃ",
+                "vietnamese_meaning": "Bản phác thảo"
+            },
+            {
+                "text": "Canvas",
+                "transcription": "ˈkænvəs",
+                "vietnamese_meaning": "Bức tranh"
+            },
+            {
+                "text": "Brush",
+                "transcription": "brʌʃ",
+                "vietnamese_meaning": "Cọ"
+            },
+            {
+                "text": "Palette",
+                "transcription": "ˈpælət",
+                "vietnamese_meaning": "Bảng màu"
+            },
+            {
+                "text": "Gallery",
+                "transcription": "ˈɡæləri",
+                "vietnamese_meaning": "Phòng trưng bày"
+            },
+            {
+                "text": "Exhibition",
+                "transcription": "ˌeksɪˈbɪʃən",
+                "vietnamese_meaning": "Triển lãm"
+            },
+            {
+                "text": "Sculptor",
+                "transcription": "ˈskʌlptər",
+                "vietnamese_meaning": "Nghệ sĩ điêu khắc"
+            },
+            {
+                "text": "Painter",
+                "transcription": "ˈpeɪntər",
+                "vietnamese_meaning": "Họa sĩ"
+            },
+            {
+                "text": "Masterpiece",
+                "transcription": "ˈmæstərpiːs",
+                "vietnamese_meaning": "Kiệt tác"
+            },
+            {
+                "text": "Abstract",
+                "transcription": "ˈæbstrækt",
+                "vietnamese_meaning": "Trừu tượng"
+            },
+            {
+                "text": "Realism",
+                "transcription": "ˈriːəlɪzəm",
+                "vietnamese_meaning": "Chân thực"
+            },
+            {
+                "text": "Portrait",
+                "transcription": "ˈpɔːrtrət",
+                "vietnamese_meaning": "Chân dung"
+            },
+            {
+                "text": "Landscape",
+                "transcription": "ˈlændskeɪp",
+                "vietnamese_meaning": "Phong cảnh"
+            },
+            {
+                "text": "Still life",
+                "transcription": "stɪl laɪf",
+                "vietnamese_meaning": "Tĩnh vật"
+            },
+            {
+                "text": "Photography",
+                "transcription": "fəˈtɒɡrəfi",
+                "vietnamese_meaning": "Nhiếp ảnh"
+            },
+            {
+                "text": "Composition",
+                "transcription": "ˌkɒmpəˈzɪʃən",
+                "vietnamese_meaning": "Cấu trúc"
+            }
+        ]
+    },
+    {
+        "Topic": "Tài chính – Ngân hàng",
+        "data": [
+            {
+                "text": "Finance",
+                "transcription": "ˈfaɪnæns",
+                "vietnamese_meaning": "Tài chính"
+            },
+            {
+                "text": "Banking",
+                "transcription": "ˈbæŋkɪŋ",
+                "vietnamese_meaning": "Ngân hàng"
+            },
+            {
+                "text": "Account",
+                "transcription": "əˈkaʊnt",
+                "vietnamese_meaning": "Tài khoản"
+            },
+            {
+                "text": "Investment",
+                "transcription": "ɪnˈvestmənt",
+                "vietnamese_meaning": "Đầu tư"
+            },
+            {
+                "text": "Interest",
+                "transcription": "ˈɪntrəst",
+                "vietnamese_meaning": "Lãi suất"
+            },
+            {
+                "text": "Loan",
+                "transcription": "loʊn",
+                "vietnamese_meaning": "Khoản vay"
+            },
+            {
+                "text": "Mortgage",
+                "transcription": "ˈmɔːrɡɪdʒ",
+                "vietnamese_meaning": "Thế chấp"
+            },
+            {
+                "text": "Credit",
+                "transcription": "ˈkredɪt",
+                "vietnamese_meaning": "Tín dụng"
+            },
+            {
+                "text": "Debit",
+                "transcription": "ˈdebɪt",
+                "vietnamese_meaning": "Nợ"
+            },
+            {
+                "text": "Balance",
+                "transcription": "ˈbæləns",
+                "vietnamese_meaning": "Số dư"
+            },
+            {
+                "text": "Currency",
+                "transcription": "ˈkʌrənsi",
+                "vietnamese_meaning": "Tiền tệ"
+            },
+            {
+                "text": "Exchange rate",
+                "transcription": "ɪksˈtʃeɪndʒ reɪt",
+                "vietnamese_meaning": "Tỷ giá"
+            },
+            {
+                "text": "Stock",
+                "transcription": "stɑːk",
+                "vietnamese_meaning": "Cổ phiếu"
+            },
+            {
+                "text": "Share",
+                "transcription": "ʃer",
+                "vietnamese_meaning": "Cổ phiếu"
+            },
+            {
+                "text": "Dividend",
+                "transcription": "ˈdɪvɪdend",
+                "vietnamese_meaning": "Cổ tức"
+            },
+            {
+                "text": "Asset",
+                "transcription": "ˈæset",
+                "vietnamese_meaning": "Tài sản"
+            },
+            {
+                "text": "Liability",
+                "transcription": "ˌlaɪəˈbɪləti",
+                "vietnamese_meaning": "Nghĩa vụ"
+            },
+            {
+                "text": "Insurance",
+                "transcription": "ɪnˈʃʊrəns",
+                "vietnamese_meaning": "Bảo hiểm"
+            },
+            {
+                "text": "Transaction",
+                "transcription": "trænˈzækʃən",
+                "vietnamese_meaning": "Giao dịch"
+            },
+            {
+                "text": "Audit",
+                "transcription": "ˈɔːdɪt",
+                "vietnamese_meaning": "Kiểm toán"
+            }
+        ]
+    },
+    {
+        "Topic": "Thể thao và hoạt động thể dục",
+        "data": [
+            {
+                "text": "Sports",
+                "transcription": "spɔːrts",
+                "vietnamese_meaning": "Thể thao"
+            },
+            {
+                "text": "Football",
+                "transcription": "ˈfʊtbɔːl",
+                "vietnamese_meaning": "Bóng đá"
+            },
+            {
+                "text": "Basketball",
+                "transcription": "ˈbæskɪtbɔːl",
+                "vietnamese_meaning": "Bóng rổ"
+            },
+            {
+                "text": "Tennis",
+                "transcription": "ˈtenɪs",
+                "vietnamese_meaning": "Tennis"
+            },
+            {
+                "text": "Swimming",
+                "transcription": "ˈswɪmɪŋ",
+                "vietnamese_meaning": "Bơi lội"
+            },
+            {
+                "text": "Running",
+                "transcription": "ˈrʌnɪŋ",
+                "vietnamese_meaning": "Chạy bộ"
+            },
+            {
+                "text": "Cycling",
+                "transcription": "ˈsaɪklɪŋ",
+                "vietnamese_meaning": "Đạp xe"
+            },
+            {
+                "text": "Gymnastics",
+                "transcription": "dʒɪmˈnæstɪks",
+                "vietnamese_meaning": "Thể dục dụng cụ"
+            },
+            {
+                "text": "Yoga",
+                "transcription": "ˈjoʊɡə",
+                "vietnamese_meaning": "Yoga"
+            },
+            {
+                "text": "Boxing",
+                "transcription": "ˈbɒksɪŋ",
+                "vietnamese_meaning": "Quyền Anh"
+            },
+            {
+                "text": "Golf",
+                "transcription": "ɡɒlf",
+                "vietnamese_meaning": "Golf"
+            },
+            {
+                "text": "Volleyball",
+                "transcription": "ˈvɒlibɔːl",
+                "vietnamese_meaning": "Bóng chuyền"
+            },
+            {
+                "text": "Table tennis",
+                "transcription": "ˈteɪbəl ˈtenɪs",
+                "vietnamese_meaning": "Bóng bàn"
+            },
+            {
+                "text": "Athletics",
+                "transcription": "æθˈletɪks",
+                "vietnamese_meaning": "Điền kinh"
+            },
+            {
+                "text": "Badminton",
+                "transcription": "ˈbædmɪntən",
+                "vietnamese_meaning": "Cầu lông"
+            },
+            {
+                "text": "Hiking",
+                "transcription": "ˈhaɪkɪŋ",
+                "vietnamese_meaning": "Leo núi"
+            },
+            {
+                "text": "Skiing",
+                "transcription": "ˈskiːɪŋ",
+                "vietnamese_meaning": "Trượt tuyết"
+            },
+            {
+                "text": "Surfing",
+                "transcription": "ˈsɜːrfɪŋ",
+                "vietnamese_meaning": "Lướt sóng"
+            },
+            {
+                "text": "Sailing",
+                "transcription": "ˈseɪlɪŋ",
+                "vietnamese_meaning": "Đi thuyền"
+            },
+            {
+                "text": "Martial arts",
+                "transcription": "ˈmɑːrʃəl ɑːrts",
+                "vietnamese_meaning": "Võ thuật"
+            }
+        ]
+    },
+    {
+        "Topic": "Cảm xúc – Tâm lý",
+        "data": [
+            {
+                "text": "Emotion",
+                "transcription": "ɪˈmoʊʃən",
+                "vietnamese_meaning": "Cảm xúc"
+            },
+            {
+                "text": "Feeling",
+                "transcription": "ˈfiːlɪŋ",
+                "vietnamese_meaning": "Cảm giác"
+            },
+            {
+                "text": "Happy",
+                "transcription": "ˈhæpi",
+                "vietnamese_meaning": "Hạnh phúc"
+            },
+            {
+                "text": "Sad",
+                "transcription": "sæd",
+                "vietnamese_meaning": "Buồn"
+            },
+            {
+                "text": "Angry",
+                "transcription": "ˈæŋɡri",
+                "vietnamese_meaning": "Tức giận"
+            },
+            {
+                "text": "Excited",
+                "transcription": "ɪkˈsaɪtɪd",
+                "vietnamese_meaning": "Hào hứng"
+            },
+            {
+                "text": "Nervous",
+                "transcription": "ˈnɜːrvəs",
+                "vietnamese_meaning": "Lo lắng"
+            },
+            {
+                "text": "Surprised",
+                "transcription": "sərˈpraɪzd",
+                "vietnamese_meaning": "Ngạc nhiên"
+            },
+            {
+                "text": "Fear",
+                "transcription": "fɪr",
+                "vietnamese_meaning": "Sợ hãi"
+            },
+            {
+                "text": "Love",
+                "transcription": "lʌv",
+                "vietnamese_meaning": "Tình yêu"
+            },
+            {
+                "text": "Hate",
+                "transcription": "heɪt",
+                "vietnamese_meaning": "Ghét bỏ"
+            },
+            {
+                "text": "Joy",
+                "transcription": "dʒɔɪ",
+                "vietnamese_meaning": "Vui mừng"
+            },
+            {
+                "text": "Sorrow",
+                "transcription": "ˈsɑroʊ",
+                "vietnamese_meaning": "Đau buồn"
+            },
+            {
+                "text": "Anxiety",
+                "transcription": "æŋˈzaɪəti",
+                "vietnamese_meaning": "Lo lắng"
+            },
+            {
+                "text": "Confidence",
+                "transcription": "ˈkɑːnfɪdəns",
+                "vietnamese_meaning": "Tự tin"
+            },
+            {
+                "text": "Stress",
+                "transcription": "stres",
+                "vietnamese_meaning": "Căng thẳng"
+            },
+            {
+                "text": "Loneliness",
+                "transcription": "ˈloʊnlinəs",
+                "vietnamese_meaning": "Cô đơn"
+            },
+            {
+                "text": "Disgust",
+                "transcription": "dɪsˈɡʌst",
+                "vietnamese_meaning": "Chán ghét"
+            },
+            {
+                "text": "Surprise",
+                "transcription": "sərˈpraɪz",
+                "vietnamese_meaning": "Sự ngạc nhiên"
+            },
+            {
+                "text": "Happiness",
+                "transcription": "ˈhæpinəs",
+                "vietnamese_meaning": "Hạnh phúc"
+            }
+        ]
+    },
+    {
+        "Topic": "Pháp luật",
+        "data": [
+            {
+                "text": "Law",
+                "transcription": "lɔː",
+                "vietnamese_meaning": "Pháp luật"
+            },
+            {
+                "text": "Legal",
+                "transcription": "ˈliːɡəl",
+                "vietnamese_meaning": "Pháp lý"
+            },
+            {
+                "text": "Legislation",
+                "transcription": "ˌledʒɪˈsleɪʃən",
+                "vietnamese_meaning": "Luật pháp"
+            },
+            {
+                "text": "Constitution",
+                "transcription": "ˌkɒnstɪˈtuːʃən",
+                "vietnamese_meaning": "Hiến pháp"
+            },
+            {
+                "text": "Justice",
+                "transcription": "ˈdʒʌstɪs",
+                "vietnamese_meaning": "Công lý"
+            },
+            {
+                "text": "Court",
+                "transcription": "kɔːrt",
+                "vietnamese_meaning": "Tòa án"
+            },
+            {
+                "text": "Judge",
+                "transcription": "dʒʌdʒ",
+                "vietnamese_meaning": "Thẩm phán"
+            },
+            {
+                "text": "Lawyer",
+                "transcription": "ˈlɔːjər",
+                "vietnamese_meaning": "Luật sư"
+            },
+            {
+                "text": "Trial",
+                "transcription": "ˈtraɪəl",
+                "vietnamese_meaning": "Phiên tòa"
+            },
+            {
+                "text": "Evidence",
+                "transcription": "ˈevɪdəns",
+                "vietnamese_meaning": "Bằng chứng"
+            },
+            {
+                "text": "Crime",
+                "transcription": "kraɪm",
+                "vietnamese_meaning": "Tội ác"
+            },
+            {
+                "text": "Punishment",
+                "transcription": "ˈpʌnɪʃmənt",
+                "vietnamese_meaning": "Hình phạt"
+            },
+            {
+                "text": "Verdict",
+                "transcription": "ˈvɜːrdɪkt",
+                "vietnamese_meaning": "Bản án"
+            },
+            {
+                "text": "Defendant",
+                "transcription": "dɪˈfendənt",
+                "vietnamese_meaning": "Bị cáo"
+            },
+            {
+                "text": "Plaintiff",
+                "transcription": "ˈpleɪntɪf",
+                "vietnamese_meaning": "Nguyên đơn"
+            },
+            {
+                "text": "Witness",
+                "transcription": "ˈwɪtnəs",
+                "vietnamese_meaning": "Nhân chứng"
+            },
+            {
+                "text": "Arrest",
+                "transcription": "əˈrest",
+                "vietnamese_meaning": "Bắt giữ"
+            },
+            {
+                "text": "Guilty",
+                "transcription": "ˈɡɪlti",
+                "vietnamese_meaning": "Có tội"
+            },
+            {
+                "text": "Innocent",
+                "transcription": "ˈɪnəsənt",
+                "vietnamese_meaning": "Vô tội"
+            },
+            {
+                "text": "Civil",
+                "transcription": "ˈsɪvəl",
+                "vietnamese_meaning": "Dân sự"
+            }
+        ]
+    },
+    {
+        "Topic": "Kinh doanh",
+        "data": [
+            {
+                "text": "Business",
+                "transcription": "ˈbɪznɪs",
+                "vietnamese_meaning": "Kinh doanh"
+            },
+            {
+                "text": "Entrepreneur",
+                "transcription": "ˌɑːntrəprəˈnɜːr",
+                "vietnamese_meaning": "Doanh nhân"
+            },
+            {
+                "text": "Company",
+                "transcription": "ˈkʌmpəni",
+                "vietnamese_meaning": "Công ty"
+            },
+            {
+                "text": "Corporation",
+                "transcription": "ˌkɔːrpəˈreɪʃən",
+                "vietnamese_meaning": "Tập đoàn"
+            },
+            {
+                "text": "Startup",
+                "transcription": "ˈstɑːrtʌp",
+                "vietnamese_meaning": "Doanh nghiệp khởi nghiệp"
+            },
+            {
+                "text": "Marketing",
+                "transcription": "ˈmɑːrkɪtɪŋ",
+                "vietnamese_meaning": "Tiếp thị"
+            },
+            {
+                "text": "Sales",
+                "transcription": "seɪlz",
+                "vietnamese_meaning": "Bán hàng"
+            },
+            {
+                "text": "Customer",
+                "transcription": "ˈkʌstəmər",
+                "vietnamese_meaning": "Khách hàng"
+            },
+            {
+                "text": "Product",
+                "transcription": "ˈprɒdʌkt",
+                "vietnamese_meaning": "Sản phẩm"
+            },
+            {
+                "text": "Service",
+                "transcription": "ˈsɜːrvɪs",
+                "vietnamese_meaning": "Dịch vụ"
+            },
+            {
+                "text": "Brand",
+                "transcription": "brænd",
+                "vietnamese_meaning": "Thương hiệu"
+            },
+            {
+                "text": "Market",
+                "transcription": "ˈmɑːrkɪt",
+                "vietnamese_meaning": "Thị trường"
+            },
+            {
+                "text": "Finance",
+                "transcription": "ˈfaɪnæns",
+                "vietnamese_meaning": "Tài chính"
+            },
+            {
+                "text": "Investment",
+                "transcription": "ɪnˈvestmənt",
+                "vietnamese_meaning": "Đầu tư"
+            },
+            {
+                "text": "Profit",
+                "transcription": "ˈprɒfɪt",
+                "vietnamese_meaning": "Lợi nhuận"
+            },
+            {
+                "text": "Entrepreneurship",
+                "transcription": "ˌɑːntrəprəˈnɜːrʃɪp",
+                "vietnamese_meaning": "Tinh thần khởi nghiệp"
+            },
+            {
+                "text": "Strategy",
+                "transcription": "ˈstrætədʒi",
+                "vietnamese_meaning": "Chiến lược"
+            },
+            {
+                "text": "Networking",
+                "transcription": "ˈnetwɜːrkɪŋ",
+                "vietnamese_meaning": "Mạng lưới"
+            },
+            {
+                "text": "Negotiation",
+                "transcription": "nɪˌɡoʊʃiˈeɪʃən",
+                "vietnamese_meaning": "Thương lượng"
+            },
+            {
+                "text": "Partnership",
+                "transcription": "ˈpɑːrtnərʃɪp",
+                "vietnamese_meaning": "Đối tác"
+            }
+        ]
+    },
+    {
+        "Topic": "Môi trường",
+        "data": [
+            {
+                "text": "Environment",
+                "transcription": "ɪnˈvaɪrənmənt",
+                "vietnamese_meaning": "Môi trường"
+            },
+            {
+                "text": "Nature",
+                "transcription": "ˈneɪtʃər",
+                "vietnamese_meaning": "Thiên nhiên"
+            },
+            {
+                "text": "Pollution",
+                "transcription": "pəˈluːʃən",
+                "vietnamese_meaning": "Ô nhiễm"
+            },
+            {
+                "text": "Climate",
+                "transcription": "ˈklaɪmət",
+                "vietnamese_meaning": "Khí hậu"
+            },
+            {
+                "text": "Conservation",
+                "transcription": "ˌkɒnsərˈveɪʃən",
+                "vietnamese_meaning": "Bảo tồn"
+            },
+            {
+                "text": "Recycling",
+                "transcription": "riːˈsaɪklɪŋ",
+                "vietnamese_meaning": "Tái chế"
+            },
+            {
+                "text": "Renewable",
+                "transcription": "rɪˈnuːəbəl",
+                "vietnamese_meaning": "Tái tạo"
+            },
+            {
+                "text": "Sustainable",
+                "transcription": "səˈsteɪnəbəl",
+                "vietnamese_meaning": "Bền vững"
+            },
+            {
+                "text": "Biodiversity",
+                "transcription": "ˌbaɪoʊdaɪˈvɜːrsəti",
+                "vietnamese_meaning": "Đa dạng sinh học"
+            },
+            {
+                "text": "Ecosystem",
+                "transcription": "ˈiːkoʊsɪstəm",
+                "vietnamese_meaning": "Hệ sinh thái"
+            },
+            {
+                "text": "Deforestation",
+                "transcription": "diːˌfɔːrɪˈsteɪʃən",
+                "vietnamese_meaning": "Tàn phá rừng"
+            },
+            {
+                "text": "Climate change",
+                "transcription": "ˈklaɪmət tʃeɪndʒ",
+                "vietnamese_meaning": "Biến đổi khí hậu"
+            },
+            {
+                "text": "Global warming",
+                "transcription": "ˌɡloʊbəl ˈwɔːrmɪŋ",
+                "vietnamese_meaning": "Nóng lên toàn cầu"
+            },
+            {
+                "text": "Air pollution",
+                "transcription": "eər pəˈluːʃən",
+                "vietnamese_meaning": "Ô nhiễm không khí"
+            },
+            {
+                "text": "Water pollution",
+                "transcription": "ˈwɔːtər pəˈluːʃən",
+                "vietnamese_meaning": "Ô nhiễm nước"
+            },
+            {
+                "text": "Waste",
+                "transcription": "weɪst",
+                "vietnamese_meaning": "Chất thải"
+            },
+            {
+                "text": "Energy",
+                "transcription": "ˈenədʒi",
+                "vietnamese_meaning": "Năng lượng"
+            },
+            {
+                "text": "Ozone layer",
+                "transcription": "ˈoʊzoʊn ˈleɪər",
+                "vietnamese_meaning": "Tầng ôzôn"
+            },
+            {
+                "text": "Sustainable",
+                "transcription": "səˈsteɪnəbəl",
+                "vietnamese_meaning": "Bền vững"
+            },
+            {
+                "text": "Conservation",
+                "transcription": "ˌkɒnsərˈveɪʃən",
+                "vietnamese_meaning": "Bảo tồn"
+            }
+        ]
+    },
+    {
+        "Topic": "Gia đình và mối quan hệ",
+        "data": [
+            {
+                "text": "Family",
+                "transcription": "ˈfæməli",
+                "vietnamese_meaning": "Gia đình"
+            },
+            {
+                "text": "Parents",
+                "transcription": "ˈpeərənts",
+                "vietnamese_meaning": "Bố mẹ"
+            },
+            {
+                "text": "Siblings",
+                "transcription": "ˈsɪblɪŋz",
+                "vietnamese_meaning": "Anh chị em ruột"
+            },
+            {
+                "text": "Children",
+                "transcription": "ˈtʃɪldrən",
+                "vietnamese_meaning": "Con cái"
+            },
+            {
+                "text": "Grandparents",
+                "transcription": "ˈɡrændˌpeərənts",
+                "vietnamese_meaning": "Ông bà"
+            },
+            {
+                "text": "Cousins",
+                "transcription": "ˈkʌzənz",
+                "vietnamese_meaning": "Anh chị em họ"
+            },
+            {
+                "text": "Nephew",
+                "transcription": "ˈnefjuː",
+                "vietnamese_meaning": "Cháu trai"
+            },
+            {
+                "text": "Niece",
+                "transcription": "niːs",
+                "vietnamese_meaning": "Cháu gái"
+            },
+            {
+                "text": "Aunt",
+                "transcription": "ænt",
+                "vietnamese_meaning": "Cô, dì"
+            },
+            {
+                "text": "Uncle",
+                "transcription": "ˈʌŋkəl",
+                "vietnamese_meaning": "Chú, bác"
+            },
+            {
+                "text": "Spouse",
+                "transcription": "spaʊs",
+                "vietnamese_meaning": "Vợ, chồng"
+            },
+            {
+                "text": "In-laws",
+                "transcription": "ɪn lɔːz",
+                "vietnamese_meaning": "Bố mẹ chồng, bố mẹ vợ"
+            },
+            {
+                "text": "Brother-in-law",
+                "transcription": "ˈbrʌðər ɪn lɔː",
+                "vietnamese_meaning": "Anh rể, em chồng"
+            },
+            {
+                "text": "Sister-in-law",
+                "transcription": "ˈsɪstər ɪn lɔː",
+                "vietnamese_meaning": "Chị dâu, em vợ"
+            },
+            {
+                "text": "Nephew",
+                "transcription": "ˈnefjuː",
+                "vietnamese_meaning": "Cháu trai"
+            },
+            {
+                "text": "Niece",
+                "transcription": "niːs",
+                "vietnamese_meaning": "Cháu gái"
+            },
+            {
+                "text": "Son",
+                "transcription": "sʌn",
+                "vietnamese_meaning": "Con trai"
+            },
+            {
+                "text": "Daughter",
+                "transcription": "ˈdɔːtər",
+                "vietnamese_meaning": "Con gái"
+            },
+            {
+                "text": "Brother",
+                "transcription": "ˈbrʌðər",
+                "vietnamese_meaning": "Anh/em trai"
+            },
+            {
+                "text": "Sister",
+                "transcription": "ˈsɪstər",
+                "vietnamese_meaning": "Chị/em gái"
+            }
+        ]
+    },
+    {
+        "Topic": "Trường học và giáo dục",
+        "data": [
+            {
+                "text": "School",
+                "transcription": "skuːl",
+                "vietnamese_meaning": "Trường học"
+            },
+            {
+                "text": "Classroom",
+                "transcription": "ˈklæsruːm",
+                "vietnamese_meaning": "Lớp học"
+            },
+            {
+                "text": "Teacher",
+                "transcription": "ˈtiːtʃər",
+                "vietnamese_meaning": "Giáo viên"
+            },
+            {
+                "text": "Student",
+                "transcription": "ˈstuːdənt",
+                "vietnamese_meaning": "Học sinh"
+            },
+            {
+                "text": "Lesson",
+                "transcription": "ˈlesn",
+                "vietnamese_meaning": "Bài học"
+            },
+            {
+                "text": "Homework",
+                "transcription": "ˈhoʊmwɜːrk",
+                "vietnamese_meaning": "Bài tập về nhà"
+            },
+            {
+                "text": "Exam",
+                "transcription": "ɪɡˈzæm",
+                "vietnamese_meaning": "Kỳ thi"
+            },
+            {
+                "text": "Test",
+                "transcription": "test",
+                "vietnamese_meaning": "Bài kiểm tra"
+            },
+            {
+                "text": "Subject",
+                "transcription": "ˈsʌbdʒɪkt",
+                "vietnamese_meaning": "Môn học"
+            },
+            {
+                "text": "Book",
+                "transcription": "bʊk",
+                "vietnamese_meaning": "Sách"
+            },
+            {
+                "text": "Pen",
+                "transcription": "pen",
+                "vietnamese_meaning": "Bút"
+            },
+            {
+                "text": "Pencil",
+                "transcription": "ˈpensl",
+                "vietnamese_meaning": "Bút chì"
+            },
+            {
+                "text": "Eraser",
+                "transcription": "ɪˈreɪsər",
+                "vietnamese_meaning": "Cục tẩy"
+            },
+            {
+                "text": "Calculator",
+                "transcription": "ˈkælkjuleɪtər",
+                "vietnamese_meaning": "Máy tính"
+            },
+            {
+                "text": "Whiteboard",
+                "transcription": "waɪt bɔːrd",
+                "vietnamese_meaning": "Bảng trắng"
+            },
+            {
+                "text": "Projector",
+                "transcription": "prəˈdʒektər",
+                "vietnamese_meaning": "Máy chiếu"
+            },
+            {
+                "text": "Backpack",
+                "transcription": "ˈbækpæk",
+                "vietnamese_meaning": "Ba lô"
+            },
+            {
+                "text": "Uniform",
+                "transcription": "ˈjuːnɪfɔːrm",
+                "vietnamese_meaning": "Đồng phục"
+            },
+            {
+                "text": "Graduation",
+                "transcription": "ˌɡrædʒuˈeɪʃən",
+                "vietnamese_meaning": "Lễ tốt nghiệp"
+            },
+            {
+                "text": "Education",
+                "transcription": "ˌedʒuˈkeɪʃən",
+                "vietnamese_meaning": "Giáo dục"
+            }
+        ]
+    },
+    {
+        "Topic": "Giao thông và phương tiện",
+        "data": [
+            {
+                "text": "Traffic",
+                "transcription": "ˈtræfɪk",
+                "vietnamese_meaning": "Giao thông"
+            },
+            {
+                "text": "Vehicle",
+                "transcription": "ˈviːəkəl",
+                "vietnamese_meaning": "Phương tiện"
+            },
+            {
+                "text": "Car",
+                "transcription": "kɑːr",
+                "vietnamese_meaning": "Ô tô"
+            },
+            {
+                "text": "Motorcycle",
+                "transcription": "ˈmoʊtərˌsaɪkəl",
+                "vietnamese_meaning": "Xe máy"
+            },
+            {
+                "text": "Bicycle",
+                "transcription": "ˈbaɪsɪkəl",
+                "vietnamese_meaning": "Xe đạp"
+            },
+            {
+                "text": "Bus",
+                "transcription": "bʌs",
+                "vietnamese_meaning": "Xe buýt"
+            },
+            {
+                "text": "Taxi",
+                "transcription": "ˈtæksi",
+                "vietnamese_meaning": "Xe taxi"
+            },
+            {
+                "text": "Train",
+                "transcription": "treɪn",
+                "vietnamese_meaning": "Tàu hỏa"
+            },
+            {
+                "text": "Subway",
+                "transcription": "ˈsʌbˌweɪ",
+                "vietnamese_meaning": "Tàu điện ngầm"
+            },
+            {
+                "text": "Tram",
+                "transcription": "træm",
+                "vietnamese_meaning": "Xe điện"
+            },
+            {
+                "text": "Plane",
+                "transcription": "pleɪn",
+                "vietnamese_meaning": "Máy bay"
+            },
+            {
+                "text": "Ship",
+                "transcription": "ʃɪp",
+                "vietnamese_meaning": "Tàu biển"
+            },
+            {
+                "text": "Boat",
+                "transcription": "boʊt",
+                "vietnamese_meaning": "Thuyền"
+            },
+            {
+                "text": "Ferry",
+                "transcription": "ˈferi",
+                "vietnamese_meaning": "Phà"
+            },
+            {
+                "text": "Pedestrian",
+                "transcription": "pəˈdestriən",
+                "vietnamese_meaning": "Người đi bộ"
+            },
+            {
+                "text": "Intersection",
+                "transcription": "ˌɪntərˈsekʃən",
+                "vietnamese_meaning": "Ngã tư"
+            },
+            {
+                "text": "Traffic light",
+                "transcription": "ˈtræfɪk laɪt",
+                "vietnamese_meaning": "Đèn giao thông"
+            },
+            {
+                "text": "Crosswalk",
+                "transcription": "ˈkrɒswɔːk",
+                "vietnamese_meaning": "Vạch dành cho người đi bộ"
+            },
+            {
+                "text": "Highway",
+                "transcription": "ˈhaɪweɪ",
+                "vietnamese_meaning": "Đường cao tốc"
+            },
+            {
+                "text": "Parking",
+                "transcription": "ˈpɑːrkɪŋ",
+                "vietnamese_meaning": "Bãi đỗ xe"
+            }
+        ]
+    },
+    {
+        "Topic": "Đồ ăn và nhà hàng",
+        "data": [
+            {
+                "text": "Food",
+                "transcription": "fuːd",
+                "vietnamese_meaning": "Đồ ăn"
+            },
+            {
+                "text": "Meal",
+                "transcription": "miːl",
+                "vietnamese_meaning": "Bữa ăn"
+            },
+            {
+                "text": "Breakfast",
+                "transcription": "ˈbrekfəst",
+                "vietnamese_meaning": "Bữa sáng"
+            },
+            {
+                "text": "Lunch",
+                "transcription": "lʌntʃ",
+                "vietnamese_meaning": "Bữa trưa"
+            },
+            {
+                "text": "Dinner",
+                "transcription": "ˈdɪnər",
+                "vietnamese_meaning": "Bữa tối"
+            },
+            {
+                "text": "Appetizer",
+                "transcription": "ˈæpɪtaɪzər",
+                "vietnamese_meaning": "Món khai vị"
+            },
+            {
+                "text": "Main course",
+                "transcription": "meɪn kɔːrs",
+                "vietnamese_meaning": "Món chính"
+            },
+            {
+                "text": "Dessert",
+                "transcription": "dɪˈzɜːrt",
+                "vietnamese_meaning": "Món tráng miệng"
+            },
+            {
+                "text": "Beverage",
+                "transcription": "ˈbevərɪdʒ",
+                "vietnamese_meaning": "Đồ uống"
+            },
+            {
+                "text": "Coffee",
+                "transcription": "ˈkɒfi",
+                "vietnamese_meaning": "Cà phê"
+            },
+            {
+                "text": "Tea",
+                "transcription": "tiː",
+                "vietnamese_meaning": "Trà"
+            },
+            {
+                "text": "Juice",
+                "transcription": "dʒuːs",
+                "vietnamese_meaning": "Nước ép"
+            },
+            {
+                "text": "Water",
+                "transcription": "ˈwɔːtər",
+                "vietnamese_meaning": "Nước"
+            },
+            {
+                "text": "Salad",
+                "transcription": "ˈsæləd",
+                "vietnamese_meaning": "Rau trộn"
+            },
+            {
+                "text": "Soup",
+                "transcription": "suːp",
+                "vietnamese_meaning": "Canh"
+            },
+            {
+                "text": "Sandwich",
+                "transcription": "ˈsændwɪtʃ",
+                "vietnamese_meaning": "Bánh mì kẹp"
+            },
+            {
+                "text": "Pasta",
+                "transcription": "ˈpæstə",
+                "vietnamese_meaning": "Mì"
+            },
+            {
+                "text": "Steak",
+                "transcription": "steɪk",
+                "vietnamese_meaning": "Bít tết"
+            },
+            {
+                "text": "Seafood",
+                "transcription": "ˈsiːfuːd",
+                "vietnamese_meaning": "Hải sản"
+            },
+            {
+                "text": "Restaurant",
+                "transcription": "ˈrestərɒnt",
+                "vietnamese_meaning": "Nhà hàng"
+            }
+        ]
+    },
+    {
+        "Topic": "Cuộc sống hằng ngày",
+        "data": [
+            {
+                "text": "Daily",
+                "transcription": "ˈdeɪli",
+                "vietnamese_meaning": "Hằng ngày"
+            },
+            {
+                "text": "Routine",
+                "transcription": "ruːˈtiːn",
+                "vietnamese_meaning": "Lịch trình"
+            },
+            {
+                "text": "Morning",
+                "transcription": "ˈmɔːrnɪŋ",
+                "vietnamese_meaning": "Buổi sáng"
+            },
+            {
+                "text": "Afternoon",
+                "transcription": "ˌæftərˈnuːn",
+                "vietnamese_meaning": "Buổi chiều"
+            },
+            {
+                "text": "Evening",
+                "transcription": "ˈiːvnɪŋ",
+                "vietnamese_meaning": "Buổi tối"
+            },
+            {
+                "text": "Night",
+                "transcription": "naɪt",
+                "vietnamese_meaning": "Buổi đêm"
+            },
+            {
+                "text": "Breakfast",
+                "transcription": "ˈbrekfəst",
+                "vietnamese_meaning": "Bữa sáng"
+            },
+            {
+                "text": "Lunch",
+                "transcription": "lʌntʃ",
+                "vietnamese_meaning": "Bữa trưa"
+            },
+            {
+                "text": "Dinner",
+                "transcription": "ˈdɪnər",
+                "vietnamese_meaning": "Bữa tối"
+            },
+            {
+                "text": "Work",
+                "transcription": "wɜːrk",
+                "vietnamese_meaning": "Công việc"
+            },
+            {
+                "text": "Study",
+                "transcription": "ˈstʌdi",
+                "vietnamese_meaning": "Học tập"
+            },
+            {
+                "text": "Exercise",
+                "transcription": "ˈeksərsaɪz",
+                "vietnamese_meaning": "Tập luyện"
+            },
+            {
+                "text": "Relax",
+                "transcription": "rɪˈlæks",
+                "vietnamese_meaning": "Thư giãn"
+            },
+            {
+                "text": "Family",
+                "transcription": "ˈfæməli",
+                "vietnamese_meaning": "Gia đình"
+            },
+            {
+                "text": "Friends",
+                "transcription": "frendz",
+                "vietnamese_meaning": "Bạn bè"
+            },
+            {
+                "text": "Hobbies",
+                "transcription": "ˈhɒbiz",
+                "vietnamese_meaning": "Sở thích"
+            },
+            {
+                "text": "Entertainment",
+                "transcription": "ˌentərˈteɪnmənt",
+                "vietnamese_meaning": "Giải trí"
+            },
+            {
+                "text": "Shopping",
+                "transcription": "ˈʃɒpɪŋ",
+                "vietnamese_meaning": "Mua sắm"
+            },
+            {
+                "text": "Relaxation",
+                "transcription": "ˌriːlækˈseɪʃən",
+                "vietnamese_meaning": "Sự thư giãn"
+            },
+            {
+                "text": "Sleep",
+                "transcription": "sliːp",
+                "vietnamese_meaning": "Giấc ngủ"
+            }
+        ]
+    },
+    {
+        "Topic": "Mua sắm và mặt hàng",
+        "data": [
+            {
+                "text": "Shopping",
+                "transcription": "ˈʃɒpɪŋ",
+                "vietnamese_meaning": "Mua sắm"
+            },
+            {
+                "text": "Store",
+                "transcription": "stɔːr",
+                "vietnamese_meaning": "Cửa hàng"
+            },
+            {
+                "text": "Market",
+                "transcription": "ˈmɑːrkɪt",
+                "vietnamese_meaning": "Chợ"
+            },
+            {
+                "text": "Mall",
+                "transcription": "mɔːl",
+                "vietnamese_meaning": "Trung tâm thương mại"
+            },
+            {
+                "text": "Shop",
+                "transcription": "ʃɒp",
+                "vietnamese_meaning": "Cửa hiệu"
+            },
+            {
+                "text": "Boutique",
+                "transcription": "buːˈtiːk",
+                "vietnamese_meaning": "Cửa hàng thời trang"
+            },
+            {
+                "text": "Department store",
+                "transcription": "dɪˈpɑːrtmənt stɔːr",
+                "vietnamese_meaning": "Cửa hàng bách hóa"
+            },
+            {
+                "text": "Supermarket",
+                "transcription": "ˈsuːpərmɑːrkɪt",
+                "vietnamese_meaning": "Siêu thị"
+            },
+            {
+                "text": "Cashier",
+                "transcription": "kæˈʃɪər",
+                "vietnamese_meaning": "Thu ngân"
+            },
+            {
+                "text": "Sale",
+                "transcription": "seɪl",
+                "vietnamese_meaning": "Giảm giá"
+            },
+            {
+                "text": "Discount",
+                "transcription": "ˈdɪskaʊnt",
+                "vietnamese_meaning": "Chiết khấu"
+            },
+            {
+                "text": "Payment",
+                "transcription": "ˈpeɪmənt",
+                "vietnamese_meaning": "Thanh toán"
+            },
+            {
+                "text": "Receipt",
+                "transcription": "rɪˈsiːt",
+                "vietnamese_meaning": "Biên lai"
+            },
+            {
+                "text": "Product",
+                "transcription": "ˈprɒdʌkt",
+                "vietnamese_meaning": "Sản phẩm"
+            },
+            {
+                "text": "Brand",
+                "transcription": "brænd",
+                "vietnamese_meaning": "Thương hiệu"
+            },
+            {
+                "text": "Size",
+                "transcription": "saɪz",
+                "vietnamese_meaning": "Kích cỡ"
+            },
+            {
+                "text": "Price",
+                "transcription": "praɪs",
+                "vietnamese_meaning": "Giá"
+            },
+            {
+                "text": "Quality",
+                "transcription": "ˈkwɒləti",
+                "vietnamese_meaning": "Chất lượng"
+            },
+            {
+                "text": "Customer",
+                "transcription": "ˈkʌstəmər",
+                "vietnamese_meaning": "Khách hàng"
+            },
+            {
+                "text": "Salesperson",
+                "transcription": "ˈseɪlzˌpɜːrsən",
+                "vietnamese_meaning": "Nhân viên bán hàng"
+            }
+        ]
+    },
+    {
+        "Topic": "Tình yêu – Mối quan hệ",
+        "data": [
+            {
+                "text": "Love",
+                "transcription": "lʌv",
+                "vietnamese_meaning": "Tình yêu"
+            },
+            {
+                "text": "Relationship",
+                "transcription": "rɪˈleɪʃənʃɪp",
+                "vietnamese_meaning": "Mối quan hệ"
+            },
+            {
+                "text": "Romance",
+                "transcription": "roʊˈmæns",
+                "vietnamese_meaning": "Tình cảm"
+            },
+            {
+                "text": "Partner",
+                "transcription": "ˈpɑːrtnər",
+                "vietnamese_meaning": "Đối tác"
+            },
+            {
+                "text": "Couple",
+                "transcription": "ˈkʌpəl",
+                "vietnamese_meaning": "Cặp đôi"
+            },
+            {
+                "text": "Date",
+                "transcription": "deɪt",
+                "vietnamese_meaning": "Hẹn hò"
+            },
+            {
+                "text": "Marriage",
+                "transcription": "ˈmærɪdʒ",
+                "vietnamese_meaning": "Hôn nhân"
+            },
+            {
+                "text": "Wedding",
+                "transcription": "ˈwedɪŋ",
+                "vietnamese_meaning": "Đám cưới"
+            },
+            {
+                "text": "Engaged",
+                "transcription": "ɪnˈɡeɪdʒd",
+                "vietnamese_meaning": "Đính hôn"
+            },
+            {
+                "text": "Breakup",
+                "transcription": "ˈbreɪkʌp",
+                "vietnamese_meaning": "Chia tay"
+            },
+            {
+                "text": "Heart",
+                "transcription": "hɑːrt",
+                "vietnamese_meaning": "Trái tim"
+            },
+            {
+                "text": "Passion",
+                "transcription": "ˈpæʃən",
+                "vietnamese_meaning": "Đam mê"
+            },
+            {
+                "text": "Trust",
+                "transcription": "trʌst",
+                "vietnamese_meaning": "Lòng tin"
+            },
+            {
+                "text": "Loyalty",
+                "transcription": "ˈlɔɪəlti",
+                "vietnamese_meaning": "Sự trung thành"
+            },
+            {
+                "text": "Jealousy",
+                "transcription": "ˈdʒeləsi",
+                "vietnamese_meaning": "Ghen tỵ"
+            },
+            {
+                "text": "Intimacy",
+                "transcription": "ˈɪntɪməsi",
+                "vietnamese_meaning": "Sự thân mật"
+            },
+            {
+                "text": "Commitment",
+                "transcription": "kəˈmɪtmənt",
+                "vietnamese_meaning": "Sự cam kết"
+            },
+            {
+                "text": "Support",
+                "transcription": "səˈpɔːrt",
+                "vietnamese_meaning": "Sự hỗ trợ"
+            },
+            {
+                "text": "Respect",
+                "transcription": "rɪˈspekt",
+                "vietnamese_meaning": "Sự tôn trọng"
+            },
+            {
+                "text": "Understanding",
+                "transcription": "ˌʌndərˈstændɪŋ",
+                "vietnamese_meaning": "Sự hiểu biết"
+            }
+        ]
+    },
+    {
+        "Topic": "Văn hóa và truyền thống",
+        "data": [
+            {
+                "text": "Culture",
+                "transcription": "ˈkʌltʃər",
+                "vietnamese_meaning": "Văn hóa"
+            },
+            {
+                "text": "Tradition",
+                "transcription": "trəˈdɪʃən",
+                "vietnamese_meaning": "Truyền thống"
+            },
+            {
+                "text": "Heritage",
+                "transcription": "ˈherɪtɪdʒ",
+                "vietnamese_meaning": "Di sản"
+            },
+            {
+                "text": "Custom",
+                "transcription": "ˈkʌstəm",
+                "vietnamese_meaning": "Phong tục"
+            },
+            {
+                "text": "Ritual",
+                "transcription": "ˈrɪtʃuəl",
+                "vietnamese_meaning": "Nghi lễ"
+            },
+            {
+                "text": "Ceremony",
+                "transcription": "ˈserəmoʊni",
+                "vietnamese_meaning": "Lễ nghi"
+            },
+            {
+                "text": "Folklore",
+                "transcription": "ˈfoʊklɔːr",
+                "vietnamese_meaning": "Văn hóa dân gian"
+            },
+            {
+                "text": "Traditional costume",
+                "transcription": "trəˈdɪʃənəl ˈkɒstjuːm",
+                "vietnamese_meaning": "Trang phục truyền thống"
+            },
+            {
+                "text": "Dance",
+                "transcription": "dæns",
+                "vietnamese_meaning": "Vũ điệu"
+            },
+            {
+                "text": "Music",
+                "transcription": "ˈmjuːzɪk",
+                "vietnamese_meaning": "Âm nhạc"
+            },
+            {
+                "text": "Art",
+                "transcription": "ɑːrt",
+                "vietnamese_meaning": "Nghệ thuật"
+            },
+            {
+                "text": "Literature",
+                "transcription": "ˈlɪtrətʃər",
+                "vietnamese_meaning": "Văn học"
+            },
+            {
+                "text": "Architecture",
+                "transcription": "ˈɑːrkɪtektʃər",
+                "vietnamese_meaning": "Kiến trúc"
+            },
+            {
+                "text": "Sculpture",
+                "transcription": "ˈskʌlptʃər",
+                "vietnamese_meaning": "Điêu khắc"
+            },
+            {
+                "text": "Painting",
+                "transcription": "ˈpeɪntɪŋ",
+                "vietnamese_meaning": "Hội họa"
+            },
+            {
+                "text": "Tradition",
+                "transcription": "trəˈdɪʃən",
+                "vietnamese_meaning": "Truyền thống"
+            },
+            {
+                "text": "Festival",
+                "transcription": "ˈfestɪvəl",
+                "vietnamese_meaning": "Lễ hội"
+            },
+            {
+                "text": "Cuisine",
+                "transcription": "kwɪˈziːn",
+                "vietnamese_meaning": "Ẩm thực"
+            },
+            {
+                "text": "Handicraft",
+                "transcription": "ˈhændɪkræft",
+                "vietnamese_meaning": "Đồ thủ công"
+            },
+            {
+                "text": "Belief",
+                "transcription": "bɪˈliːf",
+                "vietnamese_meaning": "Niềm tin"
+            }
+        ]
+    },
+    {
+        "Topic": "Sức khỏe và y tế",
+        "data": [
+            {
+                "text": "Health",
+                "transcription": "helθ",
+                "vietnamese_meaning": "Sức khỏe"
+            },
+            {
+                "text": "Wellness",
+                "transcription": "ˈwelnes",
+                "vietnamese_meaning": "Sự khỏe mạnh"
+            },
+            {
+                "text": "Doctor",
+                "transcription": "ˈdɒktər",
+                "vietnamese_meaning": "Bác sĩ"
+            },
+            {
+                "text": "Nurse",
+                "transcription": "nɜːrs",
+                "vietnamese_meaning": "Y tá"
+            },
+            {
+                "text": "Hospital",
+                "transcription": "ˈhɒspɪtl",
+                "vietnamese_meaning": "Bệnh viện"
+            },
+            {
+                "text": "Clinic",
+                "transcription": "ˈklɪnɪk",
+                "vietnamese_meaning": "Phòng khám"
+            },
+            {
+                "text": "Patient",
+                "transcription": "ˈpeɪʃənt",
+                "vietnamese_meaning": "Bệnh nhân"
+            },
+            {
+                "text": "Medicine",
+                "transcription": "ˈmedɪsɪn",
+                "vietnamese_meaning": "Thuốc"
+            },
+            {
+                "text": "Prescription",
+                "transcription": "prɪˈskrɪpʃən",
+                "vietnamese_meaning": "Đơn thuốc"
+            },
+            {
+                "text": "Symptom",
+                "transcription": "ˈsɪmptəm",
+                "vietnamese_meaning": "Triệu chứng"
+            },
+            {
+                "text": "Allergy",
+                "transcription": "ˈælədʒi",
+                "vietnamese_meaning": "Dị ứng"
+            },
+            {
+                "text": "Fever",
+                "transcription": "ˈfiːvər",
+                "vietnamese_meaning": "Sốt"
+            },
+            {
+                "text": "Cough",
+                "transcription": "kɒf",
+                "vietnamese_meaning": "Ho"
+            },
+            {
+                "text": "Headache",
+                "transcription": "ˈhedeɪk",
+                "vietnamese_meaning": "Đau đầu"
+            },
+            {
+                "text": "Stomachache",
+                "transcription": "ˈstʌməkˌeɪk",
+                "vietnamese_meaning": "Đau bụng"
+            },
+            {
+                "text": "Flu",
+                "transcription": "fluː",
+                "vietnamese_meaning": "Cúm"
+            },
+            {
+                "text": "Vaccine",
+                "transcription": "ˈvækˌsiːn",
+                "vietnamese_meaning": "Vắc-xin"
+            },
+            {
+                "text": "Check-up",
+                "transcription": "ˈtʃekʌp",
+                "vietnamese_meaning": "Kiểm tra sức khỏe"
+            },
+            {
+                "text": "Exercise",
+                "transcription": "ˈeksərsaɪz",
+                "vietnamese_meaning": "Tập luyện"
+            },
+            {
+                "text": "Healthy diet",
+                "transcription": "ˈhelθi ˈdaɪət",
+                "vietnamese_meaning": "Chế độ ăn lành mạnh"
+            }
+        ]
+    },
+    {
+        "Topic": "Công nghệ",
+        "data": [
+            {
+                "text": "Technology",
+                "transcription": "tekˈnɒlədʒi",
+                "vietnamese_meaning": "Công nghệ"
+            },
+            {
+                "text": "Computer",
+                "transcription": "kəmˈpjuːtər",
+                "vietnamese_meaning": "Máy tính"
+            },
+            {
+                "text": "Internet",
+                "transcription": "ˈɪntərnet",
+                "vietnamese_meaning": "Internet"
+            },
+            {
+                "text": "Website",
+                "transcription": "ˈwebsaɪt",
+                "vietnamese_meaning": "Trang web"
+            },
+            {
+                "text": "Software",
+                "transcription": "ˈsɒftwer",
+                "vietnamese_meaning": "Phần mềm"
+            },
+            {
+                "text": "Hardware",
+                "transcription": "ˈhɑːrdwer",
+                "vietnamese_meaning": "Phần cứng"
+            },
+            {
+                "text": "Smartphone",
+                "transcription": "ˈsmɑːrtˌfoʊn",
+                "vietnamese_meaning": "Điện thoại thông minh"
+            },
+            {
+                "text": "Tablet",
+                "transcription": "ˈtæblət",
+                "vietnamese_meaning": "Máy tính bảng"
+            },
+            {
+                "text": "App",
+                "transcription": "æp",
+                "vietnamese_meaning": "Ứng dụng"
+            },
+            {
+                "text": "Social media",
+                "transcription": "ˈsoʊʃəl ˈmiːdiə",
+                "vietnamese_meaning": "Mạng xã hội"
+            },
+            {
+                "text": "Network",
+                "transcription": "ˈnetwɜːrk",
+                "vietnamese_meaning": "Mạng"
+            },
+            {
+                "text": "Digital",
+                "transcription": "ˈdɪdʒɪtl",
+                "vietnamese_meaning": "Kỹ thuật số"
+            },
+            {
+                "text": "Cybersecurity",
+                "transcription": "ˈsaɪbərsɪˌkjʊrəti",
+                "vietnamese_meaning": "An ninh mạng"
+            },
+            {
+                "text": "Artificial intelligence",
+                "transcription": "ˌɑːrtɪˈfɪʃəl ɪnˈtelɪdʒəns",
+                "vietnamese_meaning": "Trí tuệ nhân tạo"
+            },
+            {
+                "text": "Virtual reality",
+                "transcription": "ˈvɜːrtʃuəl riˈæləti",
+                "vietnamese_meaning": "Thực tế ảo"
+            },
+            {
+                "text": "Cloud computing",
+                "transcription": "klaʊd kəmˈpjuːtɪŋ",
+                "vietnamese_meaning": "Điện toán đám mây"
+            },
+            {
+                "text": "Automation",
+                "transcription": "ˌɔːtəˈmeɪʃən",
+                "vietnamese_meaning": "Tự động hóa"
+            },
+            {
+                "text": "Robotics",
+                "transcription": "roʊˈbɒtɪks",
+                "vietnamese_meaning": "Robot"
+            },
+            {
+                "text": "Innovation",
+                "transcription": "ˌɪnəˈveɪʃən",
+                "vietnamese_meaning": "Đổi mới"
+            },
+            {
+                "text": "Data",
+                "transcription": "ˈdeɪtə",
+                "vietnamese_meaning": "Dữ liệu"
+            }
+        ]
+    },
+    {
+        "Topic": "Âm nhạc",
+        "data": [
+            {
+                "text": "Music",
+                "transcription": "ˈmjuːzɪk",
+                "vietnamese_meaning": "Âm nhạc"
+            },
+            {
+                "text": "Song",
+                "transcription": "sɒŋ",
+                "vietnamese_meaning": "Bài hát"
+            },
+            {
+                "text": "Singer",
+                "transcription": "ˈsɪŋər",
+                "vietnamese_meaning": "Ca sĩ"
+            },
+            {
+                "text": "Band",
+                "transcription": "bænd",
+                "vietnamese_meaning": "Ban nhạc"
+            },
+            {
+                "text": "Guitar",
+                "transcription": "ɡɪˈtɑːr",
+                "vietnamese_meaning": "Đàn guitar"
+            },
+            {
+                "text": "Piano",
+                "transcription": "piˈænoʊ",
+                "vietnamese_meaning": "Đàn piano"
+            },
+            {
+                "text": "Drum",
+                "transcription": "drʌm",
+                "vietnamese_meaning": "Trống"
+            },
+            {
+                "text": "Violin",
+                "transcription": "ˌvaɪəˈlɪn",
+                "vietnamese_meaning": "Đàn vi-ô-lông"
+            },
+            {
+                "text": "Flute",
+                "transcription": "fluːt",
+                "vietnamese_meaning": "Sáo"
+            },
+            {
+                "text": "Saxophone",
+                "transcription": "ˈsæksəfoʊn",
+                "vietnamese_meaning": "Kèn saxophone"
+            },
+            {
+                "text": "Concert",
+                "transcription": "ˈkɑːnsərt",
+                "vietnamese_meaning": "Buổi hòa nhạc"
+            },
+            {
+                "text": "Album",
+                "transcription": "ˈælbəm",
+                "vietnamese_meaning": "Album"
+            },
+            {
+                "text": "Lyrics",
+                "transcription": "ˈlɪrɪks",
+                "vietnamese_meaning": "Lời bài hát"
+            },
+            {
+                "text": "Melody",
+                "transcription": "ˈmelədi",
+                "vietnamese_meaning": "Giai điệu"
+            },
+            {
+                "text": "Harmony",
+                "transcription": "ˈhɑːrməni",
+                "vietnamese_meaning": "Sự hài hòa"
+            },
+            {
+                "text": "Beat",
+                "transcription": "biːt",
+                "vietnamese_meaning": "Nhịp điệu"
+            },
+            {
+                "text": "Chorus",
+                "transcription": "ˈkɔːrəs",
+                "vietnamese_meaning": "Đoạn hợp xướng"
+            },
+            {
+                "text": "Symphony",
+                "transcription": "ˈsɪmfəni",
+                "vietnamese_meaning": "Giao hưởng"
+            },
+            {
+                "text": "Genre",
+                "transcription": "ˈʒɒnrə",
+                "vietnamese_meaning": "Thể loại"
+            },
+            {
+                "text": "Dance",
+                "transcription": "dæns",
+                "vietnamese_meaning": "Khiêu vũ"
+            }
+        ]
+    },
+    {
+        "Topic": "Xã hội",
+        "data": [
+            {
+                "text": "Society",
+                "transcription": "səˈsaɪəti",
+                "vietnamese_meaning": "Xã hội"
+            },
+            {
+                "text": "Community",
+                "transcription": "kəˈmjuːnəti",
+                "vietnamese_meaning": "Cộng đồng"
+            },
+            {
+                "text": "Culture",
+                "transcription": "ˈkʌltʃər",
+                "vietnamese_meaning": "Văn hóa"
+            },
+            {
+                "text": "Tradition",
+                "transcription": "trəˈdɪʃən",
+                "vietnamese_meaning": "Truyền thống"
+            },
+            {
+                "text": "Diversity",
+                "transcription": "daɪˈvɜːrsəti",
+                "vietnamese_meaning": "Đa dạng"
+            },
+            {
+                "text": "Equality",
+                "transcription": "ɪˈkwɒləti",
+                "vietnamese_meaning": "Bình đẳng"
+            },
+            {
+                "text": "Discrimination",
+                "transcription": "dɪˌskrɪmɪˈneɪʃən",
+                "vietnamese_meaning": "Phân biệt đối xử"
+            },
+            {
+                "text": "Inclusion",
+                "transcription": "ɪnˈkluːʒən",
+                "vietnamese_meaning": "Sự bao gồm"
+            },
+            {
+                "text": "Exclusion",
+                "transcription": "ɪkˈskluːʒən",
+                "vietnamese_meaning": "Sự loại trừ"
+            },
+            {
+                "text": "Poverty",
+                "transcription": "ˈpɒvərti",
+                "vietnamese_meaning": "Nghèo đói"
+            },
+            {
+                "text": "Wealth",
+                "transcription": "welθ",
+                "vietnamese_meaning": "Giàu có"
+            },
+            {
+                "text": "Education",
+                "transcription": "ˌedʒuˈkeɪʃən",
+                "vietnamese_meaning": "Giáo dục"
+            },
+            {
+                "text": "Health",
+                "transcription": "helθ",
+                "vietnamese_meaning": "Sức khỏe"
+            },
+            {
+                "text": "Environment",
+                "transcription": "ɪnˈvaɪrənmənt",
+                "vietnamese_meaning": "Môi trường"
+            },
+            {
+                "text": "Politics",
+                "transcription": "ˈpɒlətɪks",
+                "vietnamese_meaning": "Chính trị"
+            },
+            {
+                "text": "Democracy",
+                "transcription": "dɪˈmɒkrəsi",
+                "vietnamese_meaning": "Dân chủ"
+            },
+            {
+                "text": "Government",
+                "transcription": "ˈɡʌvərnmənt",
+                "vietnamese_meaning": "Chính phủ"
+            },
+            {
+                "text": "Activism",
+                "transcription": "ˈæktɪvɪzəm",
+                "vietnamese_meaning": "Hoạt động chính trị"
+            },
+            {
+                "text": "Human rights",
+                "transcription": "ˈhjuːmən raɪts",
+                "vietnamese_meaning": "Quyền con người"
+            },
+            {
+                "text": "Volunteer",
+                "transcription": "ˌvɒlənˈtɪər",
+                "vietnamese_meaning": "Tình nguyện viên"
+            }
+        ]
+    },
+    {
+        "Topic": "Công việc và ngành nghề",
+        "data": [
+            {
+                "text": "Job",
+                "transcription": "dʒɒb",
+                "vietnamese_meaning": "Công việc"
+            },
+            {
+                "text": "Occupation",
+                "transcription": "ˌɒkjʊˈpeɪʃən",
+                "vietnamese_meaning": "Nghề nghiệp"
+            },
+            {
+                "text": "Profession",
+                "transcription": "prəˈfeʃən",
+                "vietnamese_meaning": "Chuyên nghiệp"
+            },
+            {
+                "text": "Career",
+                "transcription": "kəˈrɪr",
+                "vietnamese_meaning": "Sự nghiệp"
+            },
+            {
+                "text": "Employee",
+                "transcription": "ɪmˈplɔɪiː",
+                "vietnamese_meaning": "Nhân viên"
+            },
+            {
+                "text": "Employer",
+                "transcription": "ɪmˈplɔɪər",
+                "vietnamese_meaning": "Chủ doanh nghiệp"
+            },
+            {
+                "text": "Manager",
+                "transcription": "ˈmænɪdʒər",
+                "vietnamese_meaning": "Quản lý"
+            },
+            {
+                "text": "Supervisor",
+                "transcription": "ˈsuːpərvaɪzər",
+                "vietnamese_meaning": "Giám sát"
+            },
+            {
+                "text": "Colleague",
+                "transcription": "ˈkɒliːɡ",
+                "vietnamese_meaning": "Đồng nghiệp"
+            },
+            {
+                "text": "Team",
+                "transcription": "tiːm",
+                "vietnamese_meaning": "Nhóm"
+            },
+            {
+                "text": "Project",
+                "transcription": "ˈprɒdʒekt",
+                "vietnamese_meaning": "Dự án"
+            },
+            {
+                "text": "Deadline",
+                "transcription": "ˈdedlaɪn",
+                "vietnamese_meaning": "Hạn chót"
+            },
+            {
+                "text": "Meeting",
+                "transcription": "ˈmiːtɪŋ",
+                "vietnamese_meaning": "Cuộc họp"
+            },
+            {
+                "text": "Presentation",
+                "transcription": "ˌprezənˈteɪʃən",
+                "vietnamese_meaning": "Bài thuyết trình"
+            },
+            {
+                "text": "Resume",
+                "transcription": "ˈrezjuːm",
+                "vietnamese_meaning": "Sơ yếu lý lịch"
+            },
+            {
+                "text": "Interview",
+                "transcription": "ˈɪntərvjuː",
+                "vietnamese_meaning": "Phỏng vấn"
+            },
+            {
+                "text": "Salary",
+                "transcription": "ˈsæləri",
+                "vietnamese_meaning": "Lương"
+            },
+            {
+                "text": "Promotion",
+                "transcription": "prəˈmoʊʃən",
+                "vietnamese_meaning": "Thăng tiến"
+            },
+            {
+                "text": "Retirement",
+                "transcription": "rɪˈtaɪərmənt",
+                "vietnamese_meaning": "Về hưu"
+            },
+            {
+                "text": "Work-life balance",
+                "transcription": "wɜːrk-laɪf ˈbæləns",
+                "vietnamese_meaning": "Cân bằng công việc và cuộc sống"
+            }
+        ]
+    },
+    {
+        "Topic": "Giao tiếp – Truyền thông",
+        "data": [
+            {
+                "text": "Communication",
+                "transcription": "kəˌmjuːnɪˈkeɪʃən",
+                "vietnamese_meaning": "Giao tiếp"
+            },
+            {
+                "text": "Conversation",
+                "transcription": "ˌkɒnvəˈseɪʃən",
+                "vietnamese_meaning": "Cuộc trò chuyện"
+            },
+            {
+                "text": "Dialogue",
+                "transcription": "ˈdaɪəlɒɡ",
+                "vietnamese_meaning": "Đối thoại"
+            },
+            {
+                "text": "Language",
+                "transcription": "ˈlæŋɡwɪdʒ",
+                "vietnamese_meaning": "Ngôn ngữ"
+            },
+            {
+                "text": "Verbal",
+                "transcription": "ˈvɜːrbəl",
+                "vietnamese_meaning": "Bằng lời"
+            },
+            {
+                "text": "Nonverbal",
+                "transcription": "nɒnˈvɜːrbəl",
+                "vietnamese_meaning": "Không lời"
+            },
+            {
+                "text": "Gesture",
+                "transcription": "ˈdʒestʃər",
+                "vietnamese_meaning": "Cử chỉ"
+            },
+            {
+                "text": "Expression",
+                "transcription": "ɪkˈspreʃən",
+                "vietnamese_meaning": "Biểu hiện"
+            },
+            {
+                "text": "Listening",
+                "transcription": "ˈlɪsənɪŋ",
+                "vietnamese_meaning": "Lắng nghe"
+            },
+            {
+                "text": "Speaking",
+                "transcription": "ˈspiːkɪŋ",
+                "vietnamese_meaning": "Nói chuyện"
+            },
+            {
+                "text": "Writing",
+                "transcription": "ˈraɪtɪŋ",
+                "vietnamese_meaning": "Viết"
+            },
+            {
+                "text": "Presentation",
+                "transcription": "ˌprezənˈteɪʃən",
+                "vietnamese_meaning": "Thuyết trình"
+            },
+            {
+                "text": "Media",
+                "transcription": "ˈmiːdiə",
+                "vietnamese_meaning": "Phương tiện truyền thông"
+            },
+            {
+                "text": "News",
+                "transcription": "njuːz",
+                "vietnamese_meaning": "Tin tức"
+            },
+            {
+                "text": "Interview",
+                "transcription": "ˈɪntərvjuː",
+                "vietnamese_meaning": "Phỏng vấn"
+            },
+            {
+                "text": "Broadcast",
+                "transcription": "ˈbrɔːdkæst",
+                "vietnamese_meaning": "Phát sóng"
+            },
+            {
+                "text": "Advertisement",
+                "transcription": "ædˈvɜːrtəzmənt",
+                "vietnamese_meaning": "Quảng cáo"
+            },
+            {
+                "text": "Social media",
+                "transcription": "ˈsoʊʃəl ˈmiːdiə",
+                "vietnamese_meaning": "Mạng xã hội"
+            },
+            {
+                "text": "Public relations",
+                "transcription": "ˈpʌblɪk rɪˈleɪʃənz",
+                "vietnamese_meaning": "Quan hệ công chúng"
+            },
+            {
+                "text": "Feedback",
+                "transcription": "ˈfiːdbæk",
+                "vietnamese_meaning": "Phản hồi"
+            }
+        ]
+    }
+]
