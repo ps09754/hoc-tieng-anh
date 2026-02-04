@@ -165,6 +165,26 @@
         background: #2d2620;
         color: #fef6e4;
         font-size: 13px;
+        width: 86px;
+      }
+
+      .controls .range-inputs {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .controls .range-inputs input[type="number"] {
+        width: 80px;
+      }
+
+      .controls .toggle {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 14px;
+        color: #f7e1b5;
       }
 
       .status {
@@ -302,6 +322,16 @@
         <button class="btn secondary" id="pipBtn">Trình phát nền</button>
         <button class="btn" id="replayBtn">Nghe lại</button>
       </div>
+      <div class="group range-inputs">
+        <label for="startInput">Đọc từ</label>
+        <input id="startInput" type="number" min="1" step="1" value="1" />
+        <label for="endInput">đến</label>
+        <input id="endInput" type="number" min="1" step="1" value="1" />
+        <label class="toggle" for="loopInput">
+          <input id="loopInput" type="checkbox" />
+          Lặp lại
+        </label>
+      </div>
       <div class="group">
         <label for="delayInput">Nghỉ (giây)</label>
         <input
@@ -361,6 +391,9 @@
       const delayInput = document.getElementById("delayInput");
       const rateInput = document.getElementById("rateInput");
       const rateLabel = document.getElementById("rateLabel");
+      const startInput = document.getElementById("startInput");
+      const endInput = document.getElementById("endInput");
+      const loopInput = document.getElementById("loopInput");
       const expandBtn = document.getElementById("expandBtn");
       const pipBtn = document.getElementById("pipBtn");
       const replayBtn = document.getElementById("replayBtn");
@@ -386,6 +419,24 @@
       let pipVideo = null;
       let pipActive = false;
 
+      const storageKeys = {
+        lastIndex: "vocab:lastIndex",
+        rangeStart: "vocab:rangeStart",
+        rangeEnd: "vocab:rangeEnd",
+        loop: "vocab:loop",
+        mode: "vocab:lastMode",
+      };
+      const storageAvailable = (() => {
+        try {
+          const testKey = "__vocab_test__";
+          window.localStorage.setItem(testKey, "1");
+          window.localStorage.removeItem(testKey);
+          return true;
+        } catch (error) {
+          return false;
+        }
+      })();
+
       const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
       const cleanText = (value) => {
         if (typeof value !== "string") return "";
@@ -402,6 +453,44 @@
           transcription: cleanTranscription(item?.transcription),
           vietnamese_meaning: cleanText(item?.vietnamese_meaning),
         };
+      };
+      const clampNumber = (value, min, max) =>
+        Math.min(Math.max(value, min), max);
+      const readStoredNumber = (key) => {
+        if (!storageAvailable) return null;
+        const raw = window.localStorage.getItem(key);
+        if (raw == null) return null;
+        const parsed = Number(raw);
+        return Number.isNaN(parsed) ? null : parsed;
+      };
+      const readStoredBoolean = (key) => {
+        if (!storageAvailable) return null;
+        const raw = window.localStorage.getItem(key);
+        if (raw == null) return null;
+        return raw === "1";
+      };
+      const saveToStorage = (key, value) => {
+        if (!storageAvailable) return;
+        window.localStorage.setItem(key, String(value));
+      };
+      const saveProgress = (index) => {
+        if (index < 0) return;
+        saveToStorage(storageKeys.lastIndex, index);
+      };
+      const normalizeRangeInputs = () => {
+        const total = vocabList.length || 1;
+        let start = Number(startInput.value);
+        let end = Number(endInput.value);
+        if (Number.isNaN(start) || start < 1) start = 1;
+        if (Number.isNaN(end) || end < 1) end = total;
+        start = clampNumber(start, 1, total);
+        end = clampNumber(end, 1, total);
+        if (end < start) end = start;
+        startInput.value = String(start);
+        endInput.value = String(end);
+        saveToStorage(storageKeys.rangeStart, start);
+        saveToStorage(storageKeys.rangeEnd, end);
+        return { startIndex: start - 1, endIndex: end - 1 };
       };
 
       const setActiveRow = (index) => {
@@ -486,6 +575,7 @@
         if (!vocabList.length) return;
         autoPlaying = true;
         bilingualMode = mode === "bilingual";
+        saveToStorage(storageKeys.mode, bilingualMode ? "bilingual" : "en");
         autoStatus.textContent = bilingualMode
           ? "Tự động: Song ngữ"
           : "Tự động: Đang phát";
@@ -493,30 +583,45 @@
         bilingualBtn.disabled = true;
         stopBtn.disabled = false;
 
-        const startIndex = currentIndex >= 0 ? currentIndex : 0;
-        for (let i = startIndex; i < vocabList.length; i += 1) {
-          if (!autoPlaying) break;
-          if (replayPromise) {
-            await replayPromise;
-            replayPromise = null;
-          }
-          currentIndex = i;
-          lastSpokenIndex = i;
-          setActiveRow(i);
-          updatePlayer(vocabList[i]);
-          await speakWord(vocabList[i].text, "en-US");
-          if (!autoPlaying) break;
-          if (bilingualMode) {
-            await sleep(750);
+        const { startIndex, endIndex } = normalizeRangeInputs();
+        let nextIndex =
+          currentIndex >= startIndex && currentIndex <= endIndex
+            ? currentIndex
+            : startIndex;
+
+        while (autoPlaying) {
+          for (let i = nextIndex; i <= endIndex; i += 1) {
             if (!autoPlaying) break;
-            await speakWord(vocabList[i].vietnamese_meaning, "vi-VN");
+            if (replayPromise) {
+              await replayPromise;
+              replayPromise = null;
+            }
+            currentIndex = i;
+            lastSpokenIndex = i;
+            saveProgress(i);
+            setActiveRow(i);
+            updatePlayer(vocabList[i]);
+            await speakWord(vocabList[i].text, "en-US");
+            if (!autoPlaying) break;
+            if (bilingualMode) {
+              await sleep(750);
+              if (!autoPlaying) break;
+              await speakWord(vocabList[i].vietnamese_meaning, "vi-VN");
+            }
+            if (!autoPlaying) break;
+            if (replayPromise) {
+              await replayPromise;
+              replayPromise = null;
+            }
+            await sleep(delaySeconds * 1000);
           }
+
           if (!autoPlaying) break;
-          if (replayPromise) {
-            await replayPromise;
-            replayPromise = null;
+          if (loopInput.checked) {
+            nextIndex = startIndex;
+            continue;
           }
-          await sleep(delaySeconds * 1000);
+          break;
         }
 
         if (autoPlaying) {
@@ -579,6 +684,7 @@
           stopAll();
           currentIndex = index;
           lastSpokenIndex = index;
+          saveProgress(index);
           setActiveRow(index);
           updatePlayer(vocabList[index]);
           await speakWord(speakText, lang == "vi" ? "vi-VN" : "en-US");
@@ -719,8 +825,43 @@
           topicTitle.textContent = "Chủ đề: Tất cả";
           topicSubtitle.textContent = `Tổng số từ: ${vocabList.length}`;
           renderTable(vocabList);
-          currentIndex = vocabList.length ? 0 : -1;
-          updatePlayer(vocabList[0] || null);
+          const total = vocabList.length || 1;
+          startInput.max = String(total);
+          endInput.max = String(total);
+
+          const storedStart = readStoredNumber(storageKeys.rangeStart);
+          const storedEnd = readStoredNumber(storageKeys.rangeEnd);
+          if (storedStart != null) {
+            startInput.value = String(clampNumber(storedStart, 1, total));
+          } else {
+            startInput.value = "1";
+          }
+          if (storedEnd != null) {
+            endInput.value = String(clampNumber(storedEnd, 1, total));
+          } else {
+            endInput.value = String(total);
+          }
+
+          const storedLoop = readStoredBoolean(storageKeys.loop);
+          if (storedLoop != null) {
+            loopInput.checked = storedLoop;
+          }
+
+          const { startIndex, endIndex } = normalizeRangeInputs();
+          const storedIndex = readStoredNumber(storageKeys.lastIndex);
+          if (storedIndex != null && vocabList.length) {
+            const safeIndex = clampNumber(storedIndex, startIndex, endIndex);
+            currentIndex = safeIndex;
+            lastSpokenIndex = safeIndex;
+            setActiveRow(safeIndex);
+            updatePlayer(vocabList[safeIndex]);
+          } else {
+            currentIndex = vocabList.length ? startIndex : -1;
+            if (currentIndex >= 0) {
+              setActiveRow(currentIndex);
+            }
+            updatePlayer(vocabList[currentIndex] || null);
+          }
         } catch (error) {
           if (window.location.protocol === "file:") {
             topicSubtitle.textContent =
@@ -747,6 +888,20 @@
         const value = Number(event.target.value);
         volume = value;
         volumeLabel.textContent = `${Math.round(value * 100)}%`;
+      });
+
+      startInput.addEventListener("change", () => {
+        if (!vocabList.length) return;
+        normalizeRangeInputs();
+      });
+
+      endInput.addEventListener("change", () => {
+        if (!vocabList.length) return;
+        normalizeRangeInputs();
+      });
+
+      loopInput.addEventListener("change", () => {
+        saveToStorage(storageKeys.loop, loopInput.checked ? "1" : "0");
       });
 
       delayInput.addEventListener("input", (event) => {
