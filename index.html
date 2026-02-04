@@ -387,6 +387,22 @@
       let pipActive = false;
 
       const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+      const cleanText = (value) => {
+        if (typeof value !== "string") return "";
+        return value.trim().normalize("NFC");
+      };
+      const cleanTranscription = (value) => {
+        const raw = cleanText(value);
+        if (!raw) return "";
+        return raw.replace(/^\/+|\/+$/g, "").trim();
+      };
+      const normalizeItem = (item) => {
+        return {
+          text: cleanText(item?.text),
+          transcription: cleanTranscription(item?.transcription),
+          vietnamese_meaning: cleanText(item?.vietnamese_meaning),
+        };
+      };
 
       const setActiveRow = (index) => {
         const rows = vocabBody.querySelectorAll("tr");
@@ -423,7 +439,6 @@
           utterance.onerror = () => resolve();
           window.speechSynthesis.cancel();
           window.speechSynthesis.speak(utterance);
-          console.log(window.speechSynthesis.getVoices());
         });
       };
 
@@ -508,6 +523,7 @@
           autoPlaying = false;
           autoStatus.textContent = "Tự động: Hoàn tất";
           autoPlayBtn.disabled = false;
+          bilingualBtn.disabled = false;
           stopBtn.disabled = true;
           setActiveRow(-1);
         }
@@ -520,16 +536,31 @@
             ? `/${item.transcription}/`
             : "";
           const row = document.createElement("tr");
-          row.innerHTML = `
-          <td>${index + 1}</td>
-          <td>${item.text}</td>
-          <td>${transcription}</td>
-          <td>${item.vietnamese_meaning}</td>
-          <td>
-            <button class="btn" data-index="${index}" data-lang="en">Nghe</button>
-            <button class="btn secondary" data-index="${index}" data-lang="vi">Nghe VI</button>
-          </td>
-        `;
+          const columns = [
+            index + 1,
+            item.text,
+            transcription,
+            item.vietnamese_meaning,
+          ];
+          columns.forEach((value) => {
+            const cell = document.createElement("td");
+            cell.textContent = value;
+            row.appendChild(cell);
+          });
+          const actionsCell = document.createElement("td");
+          const enButton = document.createElement("button");
+          enButton.className = "btn";
+          enButton.dataset.index = String(index);
+          enButton.dataset.lang = "en";
+          enButton.textContent = "Nghe EN";
+          const viButton = document.createElement("button");
+          viButton.className = "btn secondary";
+          viButton.dataset.index = String(index);
+          viButton.dataset.lang = "vi";
+          viButton.textContent = "Nghe VI";
+          actionsCell.appendChild(enButton);
+          actionsCell.appendChild(viButton);
+          row.appendChild(actionsCell);
           vocabBody.appendChild(row);
         });
       };
@@ -666,6 +697,9 @@
       const loadData = async () => {
         try {
           const response = await fetch("vocabulary.json");
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+          }
           const data = await response.json();
           const topics = Array.isArray(data)
             ? data
@@ -679,15 +713,21 @@
 
           vocabList = topics.reduce((acc, topic) => {
             const items = Array.isArray(topic.data) ? topic.data : [];
-            return acc.concat(items);
+            return acc.concat(items.map(normalizeItem));
           }, []);
+          vocabList = vocabList.filter((item) => item.text);
           topicTitle.textContent = "Chủ đề: Tất cả";
           topicSubtitle.textContent = `Tổng số từ: ${vocabList.length}`;
           renderTable(vocabList);
-          currentIndex = 0;
-          updatePlayer(vocabList[0]);
+          currentIndex = vocabList.length ? 0 : -1;
+          updatePlayer(vocabList[0] || null);
         } catch (error) {
-          topicSubtitle.textContent = "Không thể tải dữ liệu từ vựng.";
+          if (window.location.protocol === "file:") {
+            topicSubtitle.textContent =
+              "Không thể tải dữ liệu từ vựng. Hãy mở trang qua máy chủ cục bộ.";
+          } else {
+            topicSubtitle.textContent = "Không thể tải dữ liệu từ vựng.";
+          }
         }
       };
 
