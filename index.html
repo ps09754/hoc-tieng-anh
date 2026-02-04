@@ -37,6 +37,19 @@
         padding: 24px 20px 8px;
       }
 
+      .header-controls {
+        margin-top: 12px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .header-controls .hint {
+        font-size: 13px;
+        color: var(--muted);
+      }
+
       .title {
         font-size: 28px;
         letter-spacing: 0.5px;
@@ -288,6 +301,22 @@
       <div class="container">
         <h1 class="title" id="topicTitle">Danh sách từ vựng</h1>
         <p class="subtitle" id="topicSubtitle">Đang tải dữ liệu...</p>
+        <div class="header-controls">
+          <button class="btn secondary" id="downloadTemplateBtn">
+            Tải mẫu Excel
+          </button>
+          <button class="btn" id="uploadExcelBtn">Tải lên Excel</button>
+          <button class="btn secondary" id="resetCustomBtn" disabled>
+            Reset từ vựng
+          </button>
+          <input
+            id="excelInput"
+            type="file"
+            accept=".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            hidden
+          />
+          <span class="hint">Hỗ trợ .xlsx</span>
+        </div>
       </div>
     </header>
 
@@ -378,10 +407,17 @@
       </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
     <script>
       const vocabBody = document.getElementById("vocabBody");
       const topicTitle = document.getElementById("topicTitle");
       const topicSubtitle = document.getElementById("topicSubtitle");
+      const downloadTemplateBtn = document.getElementById(
+        "downloadTemplateBtn",
+      );
+      const uploadExcelBtn = document.getElementById("uploadExcelBtn");
+      const resetCustomBtn = document.getElementById("resetCustomBtn");
+      const excelInput = document.getElementById("excelInput");
       const autoPlayBtn = document.getElementById("autoPlayBtn");
       const bilingualBtn = document.getElementById("bilingualBtn");
       const stopBtn = document.getElementById("stopBtn");
@@ -404,6 +440,9 @@
       const overlayReplayBtn = document.getElementById("overlayReplayBtn");
 
       let vocabList = [];
+      let defaultList = [];
+      let listSource = "default";
+      let hasCustomList = false;
       let autoPlaying = false;
       let currentIndex = -1;
       let volume = Number(volumeInput.value);
@@ -425,6 +464,7 @@
         rangeEnd: "vocab:rangeEnd",
         loop: "vocab:loop",
         mode: "vocab:lastMode",
+        customList: "vocab:customList",
       };
       const storageAvailable = (() => {
         try {
@@ -473,9 +513,26 @@
         if (!storageAvailable) return;
         window.localStorage.setItem(key, String(value));
       };
+      const getProgressKey = (source) => `${storageKeys.lastIndex}:${source}`;
       const saveProgress = (index) => {
         if (index < 0) return;
-        saveToStorage(storageKeys.lastIndex, index);
+        saveToStorage(getProgressKey(listSource), index);
+      };
+      const loadCustomListFromStorage = () => {
+        if (!storageAvailable) return [];
+        const raw = window.localStorage.getItem(storageKeys.customList);
+        if (!raw) return [];
+        try {
+          const parsed = JSON.parse(raw);
+          if (!Array.isArray(parsed)) return [];
+          return parsed.map(normalizeItem).filter((item) => item.text);
+        } catch (error) {
+          return [];
+        }
+      };
+      const setCustomState = (value) => {
+        hasCustomList = value;
+        resetCustomBtn.disabled = !hasCustomList;
       };
       const normalizeRangeInputs = () => {
         const total = vocabList.length || 1;
@@ -491,6 +548,178 @@
         saveToStorage(storageKeys.rangeStart, start);
         saveToStorage(storageKeys.rangeEnd, end);
         return { startIndex: start - 1, endIndex: end - 1 };
+      };
+      const updateTopicInfo = () => {
+        if (listSource === "custom") {
+          topicTitle.textContent = "Chủ đề: Từ vựng của bạn";
+          topicSubtitle.textContent = `Tổng số từ: ${vocabList.length} (Excel)`;
+        } else {
+          topicTitle.textContent = "Chủ đề: Tất cả";
+          topicSubtitle.textContent = `Tổng số từ: ${vocabList.length}`;
+        }
+      };
+      const applyVocabList = (list, source, options = {}) => {
+        listSource = source;
+        vocabList = list;
+        updateTopicInfo();
+        renderTable(vocabList);
+        setCustomState(listSource === "custom");
+
+        const total = vocabList.length || 1;
+        startInput.max = String(total);
+        endInput.max = String(total);
+
+        if (options.resetRange) {
+          startInput.value = "1";
+          endInput.value = String(total);
+          saveToStorage(storageKeys.rangeStart, 1);
+          saveToStorage(storageKeys.rangeEnd, total);
+        } else {
+          const storedStart = readStoredNumber(storageKeys.rangeStart);
+          const storedEnd = readStoredNumber(storageKeys.rangeEnd);
+          if (storedStart != null) {
+            startInput.value = String(clampNumber(storedStart, 1, total));
+          } else {
+            startInput.value = "1";
+          }
+          if (storedEnd != null) {
+            endInput.value = String(clampNumber(storedEnd, 1, total));
+          } else {
+            endInput.value = String(total);
+          }
+        }
+
+        const storedLoop = readStoredBoolean(storageKeys.loop);
+        if (storedLoop != null) {
+          loopInput.checked = storedLoop;
+        }
+
+        const { startIndex, endIndex } = normalizeRangeInputs();
+        let storedIndex = readStoredNumber(getProgressKey(listSource));
+        if (storedIndex == null && listSource === "default") {
+          storedIndex = readStoredNumber(storageKeys.lastIndex);
+        }
+        if (storedIndex != null && vocabList.length) {
+          const safeIndex = clampNumber(storedIndex, startIndex, endIndex);
+          currentIndex = safeIndex;
+          lastSpokenIndex = safeIndex;
+          setActiveRow(safeIndex);
+          updatePlayer(vocabList[safeIndex]);
+        } else {
+          currentIndex = vocabList.length ? startIndex : -1;
+          if (currentIndex >= 0) {
+            setActiveRow(currentIndex);
+          }
+          updatePlayer(vocabList[currentIndex] || null);
+        }
+      };
+      const normalizeHeader = (value) => {
+        return cleanText(value)
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .replace(/\s+/g, " ");
+      };
+      const extractItemsFromRows = (rows) => {
+        if (!rows.length) return [];
+        const header = rows[0] || [];
+        const normalized = header.map(normalizeHeader);
+        const targetHeaders = {
+          text: "tu vung",
+          transcription: "phien am",
+          meaning: "nghia tieng viet",
+        };
+        const indexes = {
+          text: normalized.indexOf(targetHeaders.text),
+          transcription: normalized.indexOf(targetHeaders.transcription),
+          meaning: normalized.indexOf(targetHeaders.meaning),
+        };
+        const hasHeader =
+          indexes.text !== -1 &&
+          (indexes.transcription !== -1 || indexes.meaning !== -1);
+        const dataRows = hasHeader ? rows.slice(1) : rows;
+        const textIndex = hasHeader ? indexes.text : 0;
+        const transcriptionIndex = hasHeader ? indexes.transcription : 1;
+        const meaningIndex = hasHeader ? indexes.meaning : 2;
+
+        return dataRows
+          .map((row) => {
+            return normalizeItem({
+              text: row[textIndex],
+              transcription: row[transcriptionIndex],
+              vietnamese_meaning: row[meaningIndex],
+            });
+          })
+          .filter((item) => item.text);
+      };
+      const saveCustomList = (items) => {
+        if (!storageAvailable) return;
+        window.localStorage.setItem(
+          storageKeys.customList,
+          JSON.stringify(items),
+        );
+      };
+      const clearCustomList = () => {
+        if (!storageAvailable) return;
+        window.localStorage.removeItem(storageKeys.customList);
+        window.localStorage.removeItem(getProgressKey("custom"));
+      };
+      const applyCustomList = (items, options = {}) => {
+        const normalizedItems = items.map(normalizeItem).filter((item) => item.text);
+        if (!normalizedItems.length) return false;
+        clearCustomList();
+        saveCustomList(normalizedItems);
+        applyVocabList(normalizedItems, "custom", { resetRange: true, ...options });
+        saveProgress(currentIndex);
+        return true;
+      };
+      const buildTemplateRows = () => {
+        return [
+          ["Từ vựng", "Phiên âm", "Nghĩa tiếng việt"],
+          ["example", "ˈeg.zæm.pəl", "ví dụ"],
+        ];
+      };
+      const downloadTemplate = () => {
+        if (!window.XLSX) {
+          topicSubtitle.textContent =
+            "Không thể tải mẫu Excel. Thiếu thư viện XLSX.";
+          return;
+        }
+        const worksheet = window.XLSX.utils.aoa_to_sheet(buildTemplateRows());
+        const workbook = window.XLSX.utils.book_new();
+        window.XLSX.utils.book_append_sheet(workbook, worksheet, "Vocabulary");
+        window.XLSX.writeFile(workbook, "vocabulary-template.xlsx");
+      };
+      const handleExcelFile = async (file) => {
+        if (!window.XLSX) {
+          topicSubtitle.textContent =
+            "Không thể đọc file Excel. Thiếu thư viện XLSX.";
+          return;
+        }
+        const buffer = await file.arrayBuffer();
+        const workbook = window.XLSX.read(buffer, { type: "array" });
+        const sheetName = workbook.SheetNames[0];
+        if (!sheetName) {
+          topicSubtitle.textContent =
+            "Không tìm thấy sheet trong file Excel.";
+          return;
+        }
+        const worksheet = workbook.Sheets[sheetName];
+        const rows = window.XLSX.utils.sheet_to_json(worksheet, {
+          header: 1,
+          defval: "",
+        });
+        const items = extractItemsFromRows(rows);
+        if (!items.length) {
+          topicSubtitle.textContent =
+            "Không tìm thấy dữ liệu hợp lệ trong file. Hãy dùng mẫu Excel.";
+          return;
+        }
+        const applied = applyCustomList(items);
+        if (!applied) {
+          topicSubtitle.textContent =
+            "Không thể áp dụng dữ liệu. Vui lòng kiểm tra file.";
+        }
       };
 
       const setActiveRow = (index) => {
@@ -812,55 +1041,25 @@
             : data && data.Topic
               ? [data]
               : [];
+          const storedCustomList = loadCustomListFromStorage();
           if (!topics.length) {
+            if (storedCustomList.length) {
+              applyVocabList(storedCustomList, "custom");
+              return;
+            }
             topicSubtitle.textContent = "Không có dữ liệu từ vựng.";
             return;
           }
 
-          vocabList = topics.reduce((acc, topic) => {
+          defaultList = topics.reduce((acc, topic) => {
             const items = Array.isArray(topic.data) ? topic.data : [];
             return acc.concat(items.map(normalizeItem));
           }, []);
-          vocabList = vocabList.filter((item) => item.text);
-          topicTitle.textContent = "Chủ đề: Tất cả";
-          topicSubtitle.textContent = `Tổng số từ: ${vocabList.length}`;
-          renderTable(vocabList);
-          const total = vocabList.length || 1;
-          startInput.max = String(total);
-          endInput.max = String(total);
-
-          const storedStart = readStoredNumber(storageKeys.rangeStart);
-          const storedEnd = readStoredNumber(storageKeys.rangeEnd);
-          if (storedStart != null) {
-            startInput.value = String(clampNumber(storedStart, 1, total));
+          defaultList = defaultList.filter((item) => item.text);
+          if (storedCustomList.length) {
+            applyVocabList(storedCustomList, "custom");
           } else {
-            startInput.value = "1";
-          }
-          if (storedEnd != null) {
-            endInput.value = String(clampNumber(storedEnd, 1, total));
-          } else {
-            endInput.value = String(total);
-          }
-
-          const storedLoop = readStoredBoolean(storageKeys.loop);
-          if (storedLoop != null) {
-            loopInput.checked = storedLoop;
-          }
-
-          const { startIndex, endIndex } = normalizeRangeInputs();
-          const storedIndex = readStoredNumber(storageKeys.lastIndex);
-          if (storedIndex != null && vocabList.length) {
-            const safeIndex = clampNumber(storedIndex, startIndex, endIndex);
-            currentIndex = safeIndex;
-            lastSpokenIndex = safeIndex;
-            setActiveRow(safeIndex);
-            updatePlayer(vocabList[safeIndex]);
-          } else {
-            currentIndex = vocabList.length ? startIndex : -1;
-            if (currentIndex >= 0) {
-              setActiveRow(currentIndex);
-            }
-            updatePlayer(vocabList[currentIndex] || null);
+            applyVocabList(defaultList, "default");
           }
         } catch (error) {
           if (window.location.protocol === "file:") {
@@ -871,6 +1070,29 @@
           }
         }
       };
+
+      downloadTemplateBtn.addEventListener("click", () => {
+        downloadTemplate();
+      });
+
+      uploadExcelBtn.addEventListener("click", () => {
+        excelInput.click();
+      });
+
+      excelInput.addEventListener("change", async (event) => {
+        const file = event.target.files[0];
+        if (!file) return;
+        await handleExcelFile(file);
+        event.target.value = "";
+      });
+
+      resetCustomBtn.addEventListener("click", () => {
+        if (!hasCustomList) return;
+        clearCustomList();
+        if (defaultList.length) {
+          applyVocabList(defaultList, "default");
+        }
+      });
 
       autoPlayBtn.addEventListener("click", () => {
         startAutoPlay("en");
