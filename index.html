@@ -38,9 +38,9 @@
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Từ vựng</th>
-                <th scope="col">Phiên âm</th>
+                <th scope="col" class="col-transcription">Phiên âm</th>
                 <th scope="col">Nghĩa tiếng Việt</th>
-                <th scope="col">Nghe phát âm</th>
+                <th scope="col" class="col-audio">Nghe phát âm</th>
               </tr>
             </thead>
             <tbody id="vocabBody"></tbody>
@@ -56,14 +56,23 @@
       </div>
     </main>
 
-    <div class="controls" role="region" aria-label="Điều khiển phát âm">
-      <div class="group">
+    <div
+      class="controls"
+      id="controls"
+      role="region"
+      aria-label="Điều khiển phát âm"
+    >
+      <div class="mobile-now" id="mobileNow" aria-live="polite">
+        <div class="mobile-now-word" id="mobileNowWord">---</div>
+        <div class="mobile-now-meaning" id="mobileNowMeaning">---</div>
+      </div>
+      <div class="group playback-group">
         <span class="pill" id="autoStatus">Tự động: Tắt</span>
         <button class="btn" id="autoPlayBtn">Tự động phát</button>
         <button class="btn" id="bilingualBtn">Tự động song ngữ</button>
         <button class="btn secondary" id="stopBtn" disabled>Dừng</button>
       </div>
-      <div class="group control-actions">
+      <div class="group control-actions action-group">
         <button class="btn secondary" id="expandBtn">Phóng to</button>
         <button class="btn secondary" id="pipBtn">Trình phát nền</button>
         <button class="btn" id="replayBtn">Nghe lại</button>
@@ -97,9 +106,9 @@
           min="0.6"
           max="1.2"
           step="0.05"
-          value="0.9"
+          value="0.6"
         />
-        <span class="status" id="rateLabel">0.9x</span>
+        <span class="status" id="rateLabel">0.6x</span>
       </div>
       <div class="group">
         <label for="volume">Âm lượng</label>
@@ -109,9 +118,9 @@
           min="0"
           max="1"
           step="0.05"
-          value="0.9"
+          value="1"
         />
-        <span class="status" id="volumeLabel">90%</span>
+        <span class="status" id="volumeLabel">100%</span>
       </div>
     </div>
 

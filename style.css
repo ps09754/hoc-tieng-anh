@@ -191,6 +191,28 @@ tr.active {
   color: #f7e1b5;
 }
 
+.mobile-now {
+  display: none;
+  width: 100%;
+  background: #2d2620;
+  border: 1px solid #4c3b2e;
+  border-radius: 12px;
+  padding: 8px 10px;
+  gap: 4px;
+  flex-direction: column;
+}
+
+.mobile-now-word {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fef6e4;
+}
+
+.mobile-now-meaning {
+  font-size: 13px;
+  color: #f7e1b5;
+}
+
 .status {
   font-size: 14px;
   color: #f7e1b5;
@@ -272,6 +294,10 @@ tr.active {
 }
 
 @media (max-width: 720px) {
+  .container {
+    padding: 0 12px 12px;
+  }
+
   .title {
     font-size: 22px;
   }
@@ -281,24 +307,80 @@ tr.active {
   }
 
   table {
-    min-width: 520px;
+    min-width: 0;
   }
 
   th,
   td {
-    padding: 10px 8px;
-    font-size: 14px;
+    padding: 8px 6px;
+    font-size: 12px;
+  }
+
+  th.col-audio,
+  td.col-audio {
+    display: none;
   }
 
   .controls {
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: 6px;
+    padding: 8px 10px;
   }
 
   .controls .group {
     width: 100%;
     justify-content: space-between;
+    gap: 6px;
+  }
+
+  .mobile-now {
+    display: flex;
+    order: 1;
+  }
+
+  .controls .action-group {
+    order: 2;
+  }
+
+  .controls .playback-group {
+    order: 3;
+  }
+
+  .controls label,
+  .status,
+  .pill,
+  .btn {
+    font-size: 12px;
+  }
+
+  .btn {
+    padding: 6px 10px;
+  }
+
+  .controls input[type="number"] {
+    padding: 4px 8px;
+    font-size: 12px;
+    width: 70px;
+  }
+
+  .controls .range-inputs input[type="number"] {
+    width: 64px;
+  }
+
+  .controls.is-autoplaying #autoPlayBtn,
+  .controls.is-autoplaying #bilingualBtn {
+    display: none;
+  }
+
+  .controls.is-autoplaying #stopBtn {
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .controls:not(.is-autoplaying) #stopBtn {
+    display: none;
   }
 
   .overlay .overlay-word {

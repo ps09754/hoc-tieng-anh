@@ -17,6 +17,9 @@ const rateLabel = document.getElementById("rateLabel");
 const startInput = document.getElementById("startInput");
 const endInput = document.getElementById("endInput");
 const loopInput = document.getElementById("loopInput");
+const controlsEl = document.getElementById("controls");
+const mobileNowWord = document.getElementById("mobileNowWord");
+const mobileNowMeaning = document.getElementById("mobileNowMeaning");
 const expandBtn = document.getElementById("expandBtn");
 const pipBtn = document.getElementById("pipBtn");
 const replayBtn = document.getElementById("replayBtn");
@@ -49,6 +52,7 @@ let currentPage = 1;
 const itemsPerPage = 50;
 
 rateLabel.textContent = `${rate.toFixed(2)}x`;
+volumeLabel.textContent = `${Math.round(volume * 100)}%`;
 
 let pipCanvas = null;
 let pipCtx = null;
@@ -376,14 +380,18 @@ const renderTableWithPagination = () => {
       transcription,
       item.vietnamese_meaning,
     ];
-    columns.forEach((value) => {
-      const cell = document.createElement("td");
-      cell.textContent = value;
-      row.appendChild(cell);
-    });
-    const actionsCell = document.createElement("td");
-    const enButton = document.createElement("button");
-    enButton.className = "btn";
+  columns.forEach((value, colIndex) => {
+    const cell = document.createElement("td");
+    if (colIndex === 2) {
+      cell.classList.add("col-transcription");
+    }
+    cell.textContent = value;
+    row.appendChild(cell);
+  });
+  const actionsCell = document.createElement("td");
+  actionsCell.classList.add("col-audio");
+  const enButton = document.createElement("button");
+  enButton.className = "btn";
     enButton.dataset.index = String(absoluteIndex);
     enButton.dataset.lang = "en";
     enButton.textContent = "Nghe EN";
@@ -393,10 +401,11 @@ const renderTableWithPagination = () => {
     viButton.dataset.lang = "vi";
     viButton.textContent = "Nghe VI";
     actionsCell.appendChild(enButton);
-    actionsCell.appendChild(viButton);
-    row.appendChild(actionsCell);
-    vocabBody.appendChild(row);
-  });
+  actionsCell.appendChild(viButton);
+  row.appendChild(actionsCell);
+  row.dataset.index = String(absoluteIndex);
+  vocabBody.appendChild(row);
+});
 
   updatePaginationControls();
 };
@@ -418,20 +427,23 @@ const setActiveRow = (index) => {
 
   const rows = vocabBody.querySelectorAll("tr");
   rows.forEach((row) => {
-    // Find the button in this row to check its data-index
-    const btn = row.querySelector("button[data-index]");
-    if (btn) {
-      const rowIndex = Number(btn.dataset.index);
-      if (rowIndex === index) {
-        row.classList.add("active");
+    const rowIndex = Number(row.dataset.index);
+    if (rowIndex === index) {
+      row.classList.add("active");
+      const isMobile = window.matchMedia("(max-width: 720px)").matches;
+      if (isMobile) {
+        const rect = row.getBoundingClientRect();
+        const top = rect.top + window.scrollY - 8;
+        window.scrollTo({ top, behavior: "smooth" });
+      } else {
         row.scrollIntoView({
           behavior: "smooth",
           block: "center",
           inline: "nearest",
         });
-      } else {
-        row.classList.remove("active");
       }
+    } else {
+      row.classList.remove("active");
     }
   });
 };
@@ -472,6 +484,7 @@ const queueReplay = async () => {
 
 const stopAll = () => {
   autoPlaying = false;
+  if (controlsEl) controlsEl.classList.remove("is-autoplaying");
   autoStatus.textContent = "Tự động: Tắt";
   autoPlayBtn.disabled = false;
   bilingualBtn.disabled = false;
@@ -486,6 +499,8 @@ const updatePlayer = (item) => {
   if (!item) {
     overlayWord.textContent = "---";
     overlayMeaning.textContent = "---";
+    if (mobileNowWord) mobileNowWord.textContent = "---";
+    if (mobileNowMeaning) mobileNowMeaning.textContent = "---";
     drawPiP(null);
     return;
   }
@@ -498,12 +513,15 @@ const updatePlayer = (item) => {
   }
 
   overlayMeaning.textContent = item.vietnamese_meaning;
+  if (mobileNowWord) mobileNowWord.textContent = item.text;
+  if (mobileNowMeaning) mobileNowMeaning.textContent = item.vietnamese_meaning;
   drawPiP(item);
 };
 
 const startAutoPlay = async (mode) => {
   if (!vocabList.length) return;
   autoPlaying = true;
+  if (controlsEl) controlsEl.classList.add("is-autoplaying");
   bilingualMode = mode === "bilingual";
   saveToStorage(storageKeys.mode, bilingualMode ? "bilingual" : "en");
   autoStatus.textContent = bilingualMode
@@ -556,6 +574,7 @@ const startAutoPlay = async (mode) => {
 
   if (autoPlaying) {
     autoPlaying = false;
+    if (controlsEl) controlsEl.classList.remove("is-autoplaying");
     autoStatus.textContent = "Tự động: Hoàn tất";
     autoPlayBtn.disabled = false;
     bilingualBtn.disabled = false;
@@ -567,21 +586,34 @@ const startAutoPlay = async (mode) => {
 const bindRowButtons = () => {
   vocabBody.addEventListener("click", async (event) => {
     const target = event.target;
-    if (target.tagName !== "BUTTON") return;
-    const index = Number(target.getAttribute("data-index"));
+    if (target.tagName === "BUTTON") {
+      const index = Number(target.getAttribute("data-index"));
+      if (Number.isNaN(index)) return;
+      const lang = target.getAttribute("data-lang");
+      const speakText =
+        lang == "vi"
+          ? vocabList[index].vietnamese_meaning
+          : vocabList[index].text;
+      stopAll();
+      currentIndex = index;
+      lastSpokenIndex = index;
+      saveProgress(index);
+      setActiveRow(index);
+      updatePlayer(vocabList[index]);
+      await speakWord(speakText, lang == "vi" ? "vi-VN" : "en-US");
+      return;
+    }
+
+    const row = target.closest("tr");
+    if (!row || !row.dataset.index) return;
+    const index = Number(row.dataset.index);
     if (Number.isNaN(index)) return;
-    const lang = target.getAttribute("data-lang");
-    const speakText =
-      lang == "vi"
-        ? vocabList[index].vietnamese_meaning
-        : vocabList[index].text;
     stopAll();
     currentIndex = index;
     lastSpokenIndex = index;
     saveProgress(index);
     setActiveRow(index);
     updatePlayer(vocabList[index]);
-    await speakWord(speakText, lang == "vi" ? "vi-VN" : "en-US");
   });
 };
 
