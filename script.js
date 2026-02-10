@@ -7,6 +7,7 @@ const resetCustomBtn = document.getElementById("resetCustomBtn");
 const excelInput = document.getElementById("excelInput");
 const autoPlayBtn = document.getElementById("autoPlayBtn");
 const bilingualBtn = document.getElementById("bilingualBtn");
+const repeatBtn = document.getElementById("repeatBtn");
 const stopBtn = document.getElementById("stopBtn");
 const autoStatus = document.getElementById("autoStatus");
 const volumeInput = document.getElementById("volume");
@@ -46,6 +47,7 @@ let rate = Number(rateInput.value);
 let lastSpokenIndex = -1;
 let replayPromise = null;
 let bilingualMode = false;
+let repeatEnabled = false;
 
 // Pagination State
 let currentPage = 1;
@@ -112,6 +114,12 @@ const readStoredBoolean = (key) => {
 const saveToStorage = (key, value) => {
   if (!storageAvailable) return;
   window.localStorage.setItem(key, String(value));
+};
+const updateRepeatButton = () => {
+  if (!repeatBtn) return;
+  repeatBtn.setAttribute("aria-pressed", repeatEnabled ? "true" : "false");
+  repeatBtn.classList.toggle("active", repeatEnabled);
+  repeatBtn.textContent = repeatEnabled ? "Đọc lại x2: Bật" : "Đọc lại x2: Tắt";
 };
 const getProgressKey = (source) => `${storageKeys.lastIndex}:${source}`;
 const saveProgress = (index) => {
@@ -551,6 +559,11 @@ const startAutoPlay = async (mode) => {
       updatePlayer(vocabList[i]);
       await speakWord(vocabList[i].text, "en-US");
       if (!autoPlaying) break;
+      if (repeatEnabled) {
+        await sleep(2000);
+        if (!autoPlaying) break;
+        await speakWord(vocabList[i].text, "en-US");
+      }
       if (bilingualMode) {
         await sleep(750);
         if (!autoPlaying) break;
@@ -791,6 +804,11 @@ resetCustomBtn.addEventListener("click", () => {
   }
 });
 
+repeatBtn.addEventListener("click", () => {
+  repeatEnabled = !repeatEnabled;
+  updateRepeatButton();
+});
+
 autoPlayBtn.addEventListener("click", () => {
   startAutoPlay("en");
 });
@@ -891,3 +909,4 @@ nextPageBtn.addEventListener("click", nextPage);
 
 bindRowButtons();
 loadData();
+updateRepeatButton();
